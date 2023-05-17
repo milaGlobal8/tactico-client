@@ -50,5 +50,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://api-service-hkxp.onrender.com/api"
+  "proxy": "https://api-service-hkxp.onrender.com/api"
 }
