@@ -4,7 +4,9 @@ export const useFetchPosts = () => {
   // Home用
   // プレミアリーグ
   const fetchPremierHomePosts = async (setPremierHomePosts) => {
-    const response = await axios.get(`/posts/home/premier`);
+    const response = await axios.get(
+      `https://api-service-hkxp.onrender.com/api/posts/home/premier`
+    );
     setPremierHomePosts(response.data);
   };
   // ラリーガ
