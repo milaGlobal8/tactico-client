@@ -92,7 +92,8 @@ export default function NoUserPostTitleGrid({ post }) {
                 alt="complex"
                 src={
                   post.profilePicture
-                    ? `/users/profilePicture/${post.profilePicture}`
+                    ? process.env.REACT_APP_API_URL +
+                      `/users/profilePicture/${post.profilePicture}`
                     : sampleIcon
                 }
                 className="border border-dark"

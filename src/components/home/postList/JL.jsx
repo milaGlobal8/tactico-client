@@ -56,7 +56,8 @@ const JL = () => {
                   alt="profilePicture"
                   src={
                     post.profilePicture
-                      ? `/users/profilePicture/${post.profilePicture}`
+                      ? process.env.REACT_APP_API_URL +
+                        `/users/profilePicture/${post.profilePicture}`
                       : sampleIconImg
                   }
                   className="border border-white m-0"
@@ -78,7 +79,8 @@ const JL = () => {
                     alt="profilePicture"
                     src={
                       post.profilePicture
-                        ? `/users/profilePicture/${post.profilePicture}`
+                        ? process.env.REACT_APP_API_URL +
+                          `/users/profilePicture/${post.profilePicture}`
                         : sampleIconImg
                     }
                     className="border border-white m-0"

@@ -68,7 +68,8 @@ export default function ViewAnotherUserInfo({ user }) {
             alt="anotherUser_profilePictures"
             src={
               anotherUser.profilePicture
-                ? `/users/profilePicture/${anotherUser.profilePicture}`
+                ? process.env.REACT_APP_API_URL +
+                  `/users/profilePicture/${anotherUser.profilePicture}`
                 : sampleIconImg
             }
             className="another_user_top_img border border-dark"

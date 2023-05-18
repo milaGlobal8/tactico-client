@@ -58,7 +58,8 @@ const GblPosts = () => {
                 alt="user_profilePicture"
                 src={
                   post.profilePicture
-                    ? `/users/profilePicture/${post.profilePicture}`
+                    ? process.env.REACT_APP_API_URL +
+                      `/users/profilePicture/${post.profilePicture}`
                     : sampleIconImg
                 }
                 className="border border-dark m-0"
@@ -79,7 +80,8 @@ const GblPosts = () => {
                   alt="user_profilePicture"
                   src={
                     post.profilePicture
-                      ? `/users/profilePicture/${post.profilePicture}`
+                      ? process.env.REACT_APP_API_URL +
+                        `/users/profilePicture/${post.profilePicture}`
                       : sampleIconImg
                   }
                   className="border border-dark m-0"

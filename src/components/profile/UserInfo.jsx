@@ -43,7 +43,8 @@ const UserInfo = () => {
             alt="my_profilePicture"
             src={
               user.profilePicture
-                ? `/users/profilePicture/${user.profilePicture}`
+                ? process.env.REACT_APP_API_URL +
+                  `/users/profilePicture/${user.profilePicture}`
                 : sampleIconImg
             }
             className="my_profilePicture border border-dark"
