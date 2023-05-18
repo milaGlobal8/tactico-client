@@ -8,7 +8,7 @@ export const useAxiosLoading = () => {
   // 自分の投稿すべて取得する
   const fetchPosts = useCallback(async (username, setFn) => {
     await axios
-      .get(`/posts/profile/${username}`)
+      .get(process.env.REACT_APP_API_URL + `/posts/profile/${username}`)
       .then((response) => {
         setFn(response.data);
         setIsAxiosLoading(false);
@@ -22,7 +22,7 @@ export const useAxiosLoading = () => {
   // いいね投稿取得
   const fetchLikedPosts = useCallback(async (userId, setFn) => {
     await axios
-      .get(`/posts/profile/like/${userId}`)
+      .get(process.env.REACT_APP_API_URL + `/posts/profile/like/${userId}`)
       .then((response) => {
         setFn(response.data);
         setIsAxiosLoading(false);
