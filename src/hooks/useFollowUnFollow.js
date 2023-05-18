@@ -10,7 +10,7 @@ export const useFollowUnfollow = () => {
   const handleFollow = async (targetUserId, currentUser, dispatch, setFn) => {
     try {
       await axios
-        .put(`/users/${targetUserId}/follow`, {
+        .put(process.env.REACT_APP_API_URL + `/users/${targetUserId}/follow`, {
           userId: currentUser._id,
         })
         .then((response) => {
@@ -38,9 +38,12 @@ export const useFollowUnfollow = () => {
   const handleUnFollow = async (targetUserId, currentUser, dispatch, setFn) => {
     try {
       await axios
-        .put(`/users/${targetUserId}/unfollow`, {
-          userId: currentUser._id,
-        })
+        .put(
+          process.env.REACT_APP_API_URL + `/users/${targetUserId}/unfollow`,
+          {
+            userId: currentUser._id,
+          }
+        )
         .then((response) => {
           setFn(false);
           // 更新するデータ
