@@ -5,7 +5,7 @@ export const useHandleViews = () => {
   // 閲覧数
   const handleViews = useCallback(async (postId) => {
     try {
-      await axios.put(`/posts/${postId}/view`);
+      await axios.put(process.env.REACT_APP_API_URL + `/posts/${postId}/view`);
     } catch (err) {
       console.log(err);
     }

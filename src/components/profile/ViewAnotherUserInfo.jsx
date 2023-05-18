@@ -19,7 +19,9 @@ export default function ViewAnotherUserInfo({ user }) {
   // 他のユーザーの情報を取得してくる
   React.useEffect(() => {
     const fetchAnotherUser = async () => {
-      const response = await axios.get(`/users/${user.userId}`);
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + `/users/${user.userId}`
+      );
       setAnotherUser(response.data);
     };
     fetchAnotherUser();
@@ -28,7 +30,9 @@ export default function ViewAnotherUserInfo({ user }) {
   // 自分が見ているユーザーをフォローしたら見ているユーザーページのフォロワー数を更新する
   React.useEffect(() => {
     const fetchAnotherUser = async () => {
-      const response = await axios.get(`/users/${user.userId}`);
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + `/users/${user.userId}`
+      );
       setAnotherUser(response.data);
     };
     fetchAnotherUser();
@@ -37,7 +41,9 @@ export default function ViewAnotherUserInfo({ user }) {
   // 自分が見ているユーザーのフォローを解除したら見ているユーザーページのフォロワー数を更新する
   React.useEffect(() => {
     const fetchAnotherUser = async () => {
-      const response = await axios.get(`/users/${user.userId}`);
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + `/users/${user.userId}`
+      );
       setAnotherUser(response.data);
     };
     fetchAnotherUser();

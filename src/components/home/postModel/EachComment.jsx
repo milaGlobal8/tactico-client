@@ -57,7 +57,9 @@ const EachComment = ({ comment, postId }) => {
   // コメントしたユーザー写真の取得
   useEffect(() => {
     const fetchCommentUser = async () => {
-      const response = await axios.get(`/users?userId=${comment.userId}`);
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + `/users?userId=${comment.userId}`
+      );
       setCommentUserProfilePicture(response.data.profilePicture);
     };
     fetchCommentUser();

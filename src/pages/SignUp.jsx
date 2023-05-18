@@ -97,7 +97,10 @@ export default function SignUp() {
     };
 
     try {
-      await axios.post("/auth/register", newUser);
+      await axios.post(
+        process.env.REACT_APP_API_URL + "/auth/register",
+        newUser
+      );
       navigate("/signIn", { state: "completed" });
     } catch (err) {
       setErrorMsg(err.response.data);

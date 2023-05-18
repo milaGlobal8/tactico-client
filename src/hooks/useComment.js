@@ -31,7 +31,10 @@ export const useComment = () => {
     setIsPushed
   ) => {
     try {
-      await axios.put(`/comments/${commentId}/like`, { userId: userId });
+      await axios.put(
+        process.env.REACT_APP_API_URL + `/comments/${commentId}/like`,
+        { userId: userId }
+      );
     } catch (err) {
       console.log(err);
     }
@@ -49,11 +52,19 @@ export const useComment = () => {
   };
 
   // コメントを送信する関数
-  const handleSubmit = async (e, userId, postId, comment, setDone) => {
+  const handleSubmit = async (
+    e,
+    userId,
+    username,
+    postId,
+    comment,
+    setDone
+  ) => {
     e.preventDefault();
 
     const newComment = {
       userId: userId,
+      username: username,
       postId: postId,
       content: comment,
     };

@@ -38,7 +38,10 @@ export const PostTitleGrid = memo(({ post }) => {
   const handleLike = async () => {
     try {
       // いいねのAPIを叩く
-      await axios.put(`/posts/${post._id}/like`, { userId: currentUser._id });
+      await axios.put(
+        process.env.REACT_APP_API_URL + `/posts/${post._id}/like`,
+        { userId: currentUser._id }
+      );
     } catch (err) {
       console.log(err);
     }
