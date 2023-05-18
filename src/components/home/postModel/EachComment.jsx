@@ -123,7 +123,8 @@ const EachComment = ({ comment, postId }) => {
                   alt="comment_author_picture"
                   src={
                     commentUserProfilePicture
-                      ? `/users/profilePicture/${commentUserProfilePicture}`
+                      ? process.env.REACT_APP_API_URL +
+                        `/users/profilePicture/${commentUserProfilePicture}`
                       : sampleIcon
                   }
                   className="comment_author_picture border border-dark"
@@ -135,7 +136,8 @@ const EachComment = ({ comment, postId }) => {
                   alt="comment_author_picture"
                   src={
                     commentUserProfilePicture
-                      ? `/users/profilePicture/${commentUserProfilePicture}`
+                      ? process.env.REACT_APP_API_URL +
+                        `/users/profilePicture/${commentUserProfilePicture}`
                       : sampleIcon
                   }
                   className="comment_author_picture border border-dark"

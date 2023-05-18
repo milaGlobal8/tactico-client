@@ -29,7 +29,8 @@ const ResultUser = ({ users }) => {
                 alt="sample"
                 src={
                   user.profilePicture
-                    ? `/users/profilePicture/${user.profilePicture}`
+                    ? process.env.REACT_APP_API_URL +
+                      `/users/profilePicture/${user.profilePicture}`
                     : sampleIconImg
                 }
                 className="border border-dark m-0"

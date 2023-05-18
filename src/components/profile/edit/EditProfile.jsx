@@ -32,7 +32,10 @@ const EditProfile = () => {
   const [file, setFile] = useState(user.profilePicture);
   // photoURL・・・以前設定した画像(画像を直接格納)
   const [photoURL, setPhotoURL] = useState(
-    user.profilePicture ? `/users/profilePicture/${user.profilePicture}` : ""
+    user.profilePicture
+      ? process.env.REACT_APP_API_URL +
+          `/users/profilePicture/${user.profilePicture}`
+      : ""
   );
   // 切り抜きページ
   const [openCrop, setOpenCrop] = useState(false);
@@ -150,7 +153,10 @@ const EditProfile = () => {
 
           // 前の画像をS3から削除する
           await axios
-            .delete(`/users/profilePicture/delete/${user.profilePicture}`)
+            .delete(
+              process.env.REACT_APP_API_URL +
+                `/users/profilePicture/delete/${user.profilePicture}`
+            )
             .catch((err) => console.log(err));
           // 画像をS3に保存
           const result = await postImage({ image: file });
