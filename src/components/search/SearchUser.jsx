@@ -33,7 +33,8 @@ const SearchUser = () => {
 
     if (isAlert === true) setIsAlert(false);
     const response = await axios.get(
-      `/users/search/user/${keyword.current.value}`
+      process.env.REACT_APP_API_URL +
+        `/users/search/user/${keyword.current.value}`
     );
 
     if (Object.keys(response.data).length === 0) {

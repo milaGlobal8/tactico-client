@@ -93,7 +93,10 @@ const ResetPassword = () => {
     };
 
     try {
-      await axios.put("/auth/reset/password", user);
+      await axios.put(
+        process.env.REACT_APP_API_URL + "/auth/reset/password",
+        user
+      );
       navigate("/signIn", { state: "completed" });
     } catch (err) {
       setErrorMsg(err.response.data);

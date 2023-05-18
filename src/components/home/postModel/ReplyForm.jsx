@@ -25,8 +25,8 @@ const ReplyForm = ({
     setReply(value);
   };
 
-  const handleReply = (e, userId, postId, comment) => {
-    handleSubmit(e, userId, postId, comment);
+  const handleReply = (e, userId, username, postId, comment) => {
+    handleSubmit(e, userId, username, postId, comment);
   };
 
   return (
@@ -54,7 +54,9 @@ const ReplyForm = ({
             variant="contained"
             className="rounded-pill"
             disabled={!reply}
-            onClick={(e) => handleReply(e, user._id, postId, reply)}
+            onClick={(e) =>
+              handleReply(e, user._id, user.username, postId, reply)
+            }
           >
             返信
           </Button>

@@ -35,14 +35,16 @@ const Comments = memo(({ postId }) => {
     }
   }, []);
 
-  const handleComment = (e, userId, postId, comment, setDone) => {
-    handleSubmit(e, userId, postId, comment, setDone);
+  const handleComment = (e, userId, username, postId, comment, setDone) => {
+    handleSubmit(e, userId, username, postId, comment, setDone);
   };
 
   // コメントされたらコメント数を更新
   useEffect(() => {
-    const fetchComments = async (req, res) => {
-      const response = await axios.get(`/comments/${postId}`);
+    const fetchComments = async () => {
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + `/comments/${postId}`
+      );
       setUpdatedComments(response.data);
     };
     fetchComments();
@@ -92,7 +94,14 @@ const Comments = memo(({ postId }) => {
                 className="rounded-pill"
                 disabled={!comment}
                 onClick={(e) =>
-                  handleComment(e, user._id, postId, comment, setDone)
+                  handleComment(
+                    e,
+                    user._id,
+                    user.username,
+                    postId,
+                    comment,
+                    setDone
+                  )
                 }
               >
                 コメント

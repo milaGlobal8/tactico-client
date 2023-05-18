@@ -21,7 +21,9 @@ export const usePostSettings = () => {
   // 投稿を削除する関数
   const handleDeletePost = async (postId, userId) => {
     try {
-      await axios.delete(`/posts/${postId}/${userId}`);
+      await axios.delete(
+        process.env.REACT_APP_API_URL + `/posts/${postId}/${userId}`
+      );
       navigate("/");
     } catch (err) {
       console.log(err);

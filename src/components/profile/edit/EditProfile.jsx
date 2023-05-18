@@ -51,7 +51,10 @@ const EditProfile = () => {
     const formData = new FormData();
     formData.append("profilePicture", image);
 
-    const result = await axios.post("/users/profilePicture", formData);
+    const result = await axios.post(
+      process.env.REACT_APP_API_URL + "/users/profilePicture",
+      formData
+    );
     return result.data;
   };
 

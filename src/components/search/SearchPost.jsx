@@ -33,7 +33,8 @@ const SearchPost = () => {
 
     if (isAlert === true) setIsAlert(false);
     const response = await axios.get(
-      `/posts/search/post/${keyword.current.value}`
+      process.env.REACT_APP_API_URL +
+        `/posts/search/post/${keyword.current.value}`
     );
 
     if (Object.keys(response.data).length === 0) {
