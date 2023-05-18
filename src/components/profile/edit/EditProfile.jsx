@@ -74,7 +74,10 @@ const EditProfile = () => {
           profilePicture: user.profilePicture,
         };
         await axios
-          .put(`/users/${user._id}`, updatedInfo)
+          .put(
+            process.env.REACT_APP_API_URL + `/users/${user._id}`,
+            updatedInfo
+          )
           .then((response) => {
             // 更新するデータ
             let data = {
@@ -114,12 +117,18 @@ const EditProfile = () => {
 
           // 投稿のユーザー情報も変更
           await axios
-            .put(`/posts/${user._id}`, updatedInfo)
+            .put(
+              process.env.REACT_APP_API_URL + `/posts/${user._id}`,
+              updatedInfo
+            )
             .catch((err) => console.log(err.response.data));
 
           // 画像をS3に保存してからデータベースへ送信
           await axios
-            .put(`/users/${user._id}`, updatedInfo)
+            .put(
+              process.env.REACT_APP_API_URL + `/users/${user._id}`,
+              updatedInfo
+            )
             .then((response) => {
               // 更新するデータ
               let data = {
@@ -165,12 +174,18 @@ const EditProfile = () => {
 
           // 投稿のユーザー情報も変更
           await axios
-            .put(`/posts/${user._id}`, updatedInfo)
+            .put(
+              process.env.REACT_APP_API_URL + `/posts/${user._id}`,
+              updatedInfo
+            )
             .catch((err) => console.log(err.response.data));
 
           // 画像をS3に保存してからデータベースへ送信
           await axios
-            .put(`/users/${user._id}`, updatedInfo)
+            .put(
+              process.env.REACT_APP_API_URL + `/users/${user._id}`,
+              updatedInfo
+            )
             .then((response) => {
               // 更新するデータ
               let data = {
