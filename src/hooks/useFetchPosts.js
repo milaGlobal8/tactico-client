@@ -5,7 +5,7 @@ export const useFetchPosts = () => {
   // プレミアリーグ
   const fetchPremierHomePosts = async (setPremierHomePosts) => {
     const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/home/premier"
+      `${process.env.REACT_APP_API_URL}/posts/home/premier`
     );
     setPremierHomePosts(response.data);
   };
