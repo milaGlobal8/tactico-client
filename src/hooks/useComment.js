@@ -12,7 +12,7 @@ export const useComment = () => {
   // 投稿ごとのコメントを取得してくる
   const fetchCommentGroup = async (postId, setCommentGroup) => {
     await axios
-      .get(`/comments/${postId}`)
+      .get(process.env.REACT_APP_API_URL + `/comments/${postId}`)
       .then((res) => {
         setCommentGroup(res.data);
       })
@@ -71,7 +71,7 @@ export const useComment = () => {
 
     try {
       await axios
-        .post("/comments", newComment)
+        .post(process.env.REACT_APP_API_URL + "/comments", newComment)
         .then((res) => {
           setDone(res);
         })
