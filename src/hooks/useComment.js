@@ -95,9 +95,6 @@ export const useComment = () => {
     try {
       await axios
         .post(process.env.REACT_APP_API_URL + "/comments", newComment)
-        .then((res) => {
-          setDone(res);
-        })
         .catch((err) => console.log(err))
         .finally(() => window.location.reload());
     } catch (err) {
