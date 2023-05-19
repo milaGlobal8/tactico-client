@@ -13,7 +13,7 @@ const ReplyForm = ({
   commentUsername,
 }) => {
   // hooks
-  const { handleSubmit } = useComment();
+  const { handleReply } = useComment();
 
   // state
   const [reply, setReply] = useState("");
@@ -23,10 +23,6 @@ const ReplyForm = ({
   // 値の監視
   const handleChangeReply = (value) => {
     setReply(value);
-  };
-
-  const handleReply = (e, userId, username, postId, comment) => {
-    handleSubmit(e, userId, username, postId, comment);
   };
 
   return (
