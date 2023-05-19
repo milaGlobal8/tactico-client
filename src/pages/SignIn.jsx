@@ -91,8 +91,9 @@ export default function SignIn() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              minHeight: "100vh",
             }}
-            className="my-5"
+            className="signIn_container my-5"
           >
             {registerCompleted ? (
               <Alert severity="success" sx={{ mb: 1 }}>

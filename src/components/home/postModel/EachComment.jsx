@@ -177,7 +177,7 @@ const EachComment = ({ comment, postId }) => {
                 <></>
               )}
               {currentUser ? (
-                <Button onClick={() => handleReply()}>Reply</Button>
+                <Button onClick={() => handleReply()}>返信</Button>
               ) : (
                 <></>
               )}
