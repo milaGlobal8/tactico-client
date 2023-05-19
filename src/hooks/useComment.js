@@ -81,6 +81,29 @@ export const useComment = () => {
       console.log(err);
     }
   };
+  // 返信を送信する関数
+  const handleReply = async (e, userId, username, postId, reply) => {
+    e.preventDefault();
+
+    const newComment = {
+      userId: userId,
+      username: username,
+      postId: postId,
+      content: reply,
+    };
+
+    try {
+      await axios
+        .post(process.env.REACT_APP_API_URL + "/comments", newComment)
+        .then((res) => {
+          setDone(res);
+        })
+        .catch((err) => console.log(err))
+        .finally(() => window.location.reload());
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return {
     isVisible,
@@ -93,5 +116,6 @@ export const useComment = () => {
     handleGoodComment,
     handleChangeComment,
     handleSubmit,
+    handleReply,
   };
 };
