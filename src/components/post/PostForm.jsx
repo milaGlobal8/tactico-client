@@ -120,7 +120,7 @@ const PostForm = () => {
 
     try {
       await axios
-        .post("/posts", newPost)
+        .post(process.env.REACT_APP_API_URL + "/posts", newPost)
         .catch((err) => {
           console.log(err);
         })
