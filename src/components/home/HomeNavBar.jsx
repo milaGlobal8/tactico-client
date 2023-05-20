@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Tooltip, IconButton, Button } from "@mui/material";
+import { Tooltip, Button } from "@mui/material";
 import { useChangeComponent } from "../../hooks/useChangeComponent";
 import EUL from "./postList/EUL";
 import JL from "./postList/JL";
@@ -19,6 +19,7 @@ const HomeNavBar = memo(() => {
         <div>
           <Tooltip title="European">
             <Button
+              type="button"
               sx={euSelected ? { color: "purple" } : { color: "black" }}
               onClick={(e) => onClickChangeComponent(e)}
             >
@@ -29,6 +30,7 @@ const HomeNavBar = memo(() => {
         <div>
           <Tooltip title="J-league">
             <Button
+              type="button"
               sx={japSelected ? { color: "red" } : { color: "black" }}
               onClick={(e) => onClickChangeComponent(e)}
             >
@@ -39,6 +41,7 @@ const HomeNavBar = memo(() => {
         <div>
           <Tooltip title="National">
             <Button
+              type="button"
               sx={nationalSelected ? { color: "primary" } : { color: "black" }}
               onClick={(e) => onClickChangeComponent(e)}
             >
