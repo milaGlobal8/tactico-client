@@ -3,7 +3,6 @@ import { Tooltip, Button } from "@mui/material";
 import { usePostGoodUserColor } from "../../hooks/usePostGoodUserColor";
 import MyPosts from "./MyPosts";
 import LikedPosts from "./LikedPosts";
-import "../../css/button.css";
 
 const ProfileNavBar = memo(() => {
   //カスタムフックの使用
@@ -23,7 +22,7 @@ const ProfileNavBar = memo(() => {
               type="button"
               sx={isPost ? styleSelected : { color: "black" }}
               variant="text"
-              onClick={(e) => onClickChangeColor(e)}
+              onPointerEnter={(e) => onClickChangeColor(e)}
             >
               投稿
             </Button>
@@ -37,7 +36,7 @@ const ProfileNavBar = memo(() => {
               type="button"
               sx={isGood ? styleSelected : { color: "black" }}
               variant="text"
-              onClick={(e) => onClickChangeColor(e)}
+              onPointerEnter={(e) => onClickChangeColor(e)}
             >
               いいね
             </Button>
