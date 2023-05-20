@@ -4,6 +4,7 @@ import { useChangeComponent } from "../../hooks/useChangeComponent";
 import EUL from "./postList/EUL";
 import JL from "./postList/JL";
 import National from "./postList/National";
+import "../../css/button.css";
 
 const HomeNavBar = memo(() => {
   //カスタムフックの使用
@@ -19,6 +20,7 @@ const HomeNavBar = memo(() => {
         <div>
           <Tooltip title="European">
             <Button
+              className="button_for_mobile"
               type="button"
               sx={euSelected ? { color: "purple" } : { color: "black" }}
               onClick={(e) => onClickChangeComponent(e)}
@@ -30,6 +32,7 @@ const HomeNavBar = memo(() => {
         <div>
           <Tooltip title="J-league">
             <Button
+              className="button_for_mobile"
               type="button"
               sx={japSelected ? { color: "red" } : { color: "black" }}
               onClick={(e) => onClickChangeComponent(e)}
@@ -41,6 +44,7 @@ const HomeNavBar = memo(() => {
         <div>
           <Tooltip title="National">
             <Button
+              className="button_for_mobile"
               type="button"
               sx={nationalSelected ? { color: "primary" } : { color: "black" }}
               onClick={(e) => onClickChangeComponent(e)}
