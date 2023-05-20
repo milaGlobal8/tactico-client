@@ -7,9 +7,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import { AuthContext } from "./../../state/AuthContext";
 
-// ログイン中を表示するためのアイコン ↓
-// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-
 const Header = () => {
   // ログインしているか
   const { user } = useContext(AuthContext);
@@ -60,14 +57,6 @@ const Header = () => {
           </Tooltip>
         </div>
       </nav>
-      {/* {loginState ? (
-        <></>
-      ) : (
-        <div className="d-flex bg-success bg-gradient border border-dark">
-          <AccountCircleIcon className="ms-auto" />
-          {adminUsers.admin_name}
-        </div>
-      )} */}
     </div>
   );
 };
