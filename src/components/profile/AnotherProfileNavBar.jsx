@@ -1,8 +1,9 @@
 import React, { memo } from "react";
-import { Tooltip, IconButton } from "@mui/material";
+import { Tooltip, Button } from "@mui/material";
 import { usePostGoodUserColor } from "../../hooks/usePostGoodUserColor";
 import AnotherUserPosts from "./AnotherUserPosts";
 import AnotherUserLikedPosts from "./AnotherUserLikedPosts";
+import "../../css/button.css";
 
 const AnotherProfileNavBar = memo(({ user }) => {
   //カスタムフックの使用
@@ -17,25 +18,29 @@ const AnotherProfileNavBar = memo(({ user }) => {
       >
         <div>
           <Tooltip title="投稿">
-            <IconButton
-              sx={isPost ? styleSelected : { color: "dark" }}
-              edge="start"
+            <Button
+              className="button_for_mobile"
+              type="button"
+              sx={isPost ? styleSelected : { color: "black" }}
+              variant="text"
               onClick={(e) => onClickChangeColor(e)}
             >
               投稿
-            </IconButton>
+            </Button>
           </Tooltip>
         </div>
 
         <div>
           <Tooltip title="いいね">
-            <IconButton
-              sx={isGood ? styleSelected : { color: "dark" }}
-              edge="start"
+            <Button
+              className="button_for_mobile"
+              type="button"
+              sx={isGood ? styleSelected : { color: "black" }}
+              variant="text"
               onClick={(e) => onClickChangeColor(e)}
             >
               いいね
-            </IconButton>
+            </Button>
           </Tooltip>
         </div>
       </nav>
