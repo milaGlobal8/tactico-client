@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Tooltip, IconButton } from "@mui/material";
+import { Tooltip, IconButton, Button } from "@mui/material";
 import { useChangeComponent } from "../../hooks/useChangeComponent";
 import EUL from "./postList/EUL";
 import JL from "./postList/JL";
@@ -18,34 +18,32 @@ const HomeNavBar = memo(() => {
       >
         <div>
           <Tooltip title="European">
-            <IconButton
-              edge="end"
-              color={euSelected ? "secondary" : ""}
+            <Button
+              sx={euSelected ? { color: "purple" } : { color: "black" }}
               onClick={(e) => onClickChangeComponent(e)}
             >
               European
-            </IconButton>
+            </Button>
           </Tooltip>
         </div>
         <div>
           <Tooltip title="J-league">
-            <IconButton
-              edge="end"
-              color={japSelected ? "error" : ""}
+            <Button
+              sx={japSelected ? { color: "red" } : { color: "black" }}
               onClick={(e) => onClickChangeComponent(e)}
             >
               J-league
-            </IconButton>
+            </Button>
           </Tooltip>
         </div>
         <div>
           <Tooltip title="National">
-            <IconButton
-              color={nationalSelected ? "primary" : ""}
+            <Button
+              sx={nationalSelected ? { color: "primary" } : { color: "black" }}
               onClick={(e) => onClickChangeComponent(e)}
             >
               National
-            </IconButton>
+            </Button>
           </Tooltip>
         </div>
       </nav>

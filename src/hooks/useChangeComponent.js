@@ -8,16 +8,17 @@ export const useChangeComponent = () => {
 
   //ボタンがクリックされたときの関数
   const onClickChangeComponent = (e) => {
+    console.log(e.target.innerText);
     //innerTextの中身に応じて投稿コンポーネントの表示を変更する
-    if (e.target.innerText === "European") {
+    if (e.target.innerText === "EUROPEAN") {
       setEuSelected(true);
       setJapSelected(false);
       setNationalSelected(false);
-    } else if (e.target.innerText === "J-league") {
+    } else if (e.target.innerText === "J-LEAGUE") {
       setJapSelected(true);
       setEuSelected(false);
       setNationalSelected(false);
-    } else if (e.target.innerText === "National") {
+    } else if (e.target.innerText === "NATIONAL") {
       setNationalSelected(true);
       setEuSelected(false);
       setJapSelected(false);
