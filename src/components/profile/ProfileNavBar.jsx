@@ -18,6 +18,7 @@ const ProfileNavBar = memo(() => {
         <div className="post_btn">
           <Tooltip title="投稿">
             <Button
+              type="button"
               sx={isPost ? styleSelected : { color: "black" }}
               variant="text"
               onClick={(e) => onClickChangeColor(e)}
@@ -30,6 +31,7 @@ const ProfileNavBar = memo(() => {
         <div className="good_post_btn">
           <Tooltip title="いいね">
             <Button
+              type="button"
               sx={isGood ? styleSelected : { color: "black" }}
               variant="text"
               onClick={(e) => onClickChangeColor(e)}
