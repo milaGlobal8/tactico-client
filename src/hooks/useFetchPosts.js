@@ -1,123 +1,213 @@
 import axios from "axios";
+import { useState } from "react";
 
 export const useFetchPosts = () => {
+  // axios処理中のstate [true-ローディング表示/false-非表示]
+  const [isAxiosLoadingForPost, setIsAxiosLoadingForPost] = useState(true);
   // Home用
   // プレミアリーグ
-  const fetchPremierHomePosts = async (setPremierHomePosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + `/posts/home/premier`
-    );
-    setPremierHomePosts(response.data);
+  const fetchPremierHomePosts = async (
+    setPremierHomePosts,
+    setIsAxiosLoadingForPost
+  ) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/home/premier")
+      .then((response) => {
+        setPremierHomePosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // ラリーガ
-  const fetchLaligaHomePosts = async (setLaligaHomePosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/home/laliga"
-    );
-    setLaligaHomePosts(response.data);
+  const fetchLaligaHomePosts = async (
+    setLaligaHomePosts,
+    setIsAxiosLoadingForPost
+  ) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/home/laliga")
+      .then((response) => {
+        setLaligaHomePosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // ブンデスリーガ
-  const fetchBundesHomePosts = async (setBundesHomePosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/home/bundes"
-    );
-    setBundesHomePosts(response.data);
+  const fetchBundesHomePosts = async (
+    setBundesHomePosts,
+    setIsAxiosLoadingForPost
+  ) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/home/bundes")
+      .then((response) => {
+        setBundesHomePosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // セリエA
-  const fetchSerieaHomePosts = async (setSerieaHomePosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/home/seriea"
-    );
-    setSerieaHomePosts(response.data);
+  const fetchSerieaHomePosts = async (
+    setSerieaHomePosts,
+    setIsAxiosLoadingForPost
+  ) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/home/seriea")
+      .then((response) => {
+        setSerieaHomePosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // リーグ・アン
-  const fetchLigue1HomePosts = async (setLigue1HomePosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/home/ligue1"
-    );
-    setLigue1HomePosts(response.data);
+  const fetchLigue1HomePosts = async (
+    setLigue1HomePosts,
+    setIsAxiosLoadingForPost
+  ) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/home/ligue1")
+      .then((response) => {
+        setLigue1HomePosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // CL
-  const fetchClHomePosts = async (setClHomePosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/home/cl"
-    );
-    setClHomePosts(response.data);
+  const fetchClHomePosts = async (setClHomePosts, setIsAxiosLoadingForPost) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/home/cl")
+      .then((response) => {
+        setClHomePosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // EL
-  const fetchElHomePosts = async (setElHomePosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/home/el"
-    );
-    setElHomePosts(response.data);
+  const fetchElHomePosts = async (setElHomePosts, setIsAxiosLoadingForPost) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/home/el")
+      .then((response) => {
+        setElHomePosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
 
   // 各ページ用
   // プレミアリーグ
-  const fetchPremierPosts = async (setPremierPosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/only/for/premier"
-    );
-    setPremierPosts(response.data);
+  const fetchPremierPosts = async (
+    setPremierPosts,
+    setIsAxiosLoadingForPost
+  ) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/only/for/premier")
+      .then((response) => {
+        setPremierPosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // ラリーガ
-  const fetchLaligaPosts = async (setLaligaPosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/only/for/laliga"
-    );
-    setLaligaPosts(response.data);
+  const fetchLaligaPosts = async (setLaligaPosts, setIsAxiosLoadingForPost) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/only/for/laliga")
+      .then((response) => {
+        setLaligaPosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // ブンデスリーガ
-  const fetchBundesPosts = async (setBundesPosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/only/for/bundes"
-    );
-    setBundesPosts(response.data);
+  const fetchBundesPosts = async (setBundesPosts, setIsAxiosLoadingForPost) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/only/for/bundes")
+      .then((response) => {
+        setBundesPosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // セリエA
-  const fetchSerieaPosts = async (setSerieaPosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/only/for/seriea"
-    );
-    setSerieaPosts(response.data);
+  const fetchSerieaPosts = async (setSerieaPosts, setIsAxiosLoadingForPost) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/only/for/seriea")
+      .then((response) => {
+        setSerieaPosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // リーグ・アン
-  const fetchLigue1Posts = async (setLigue1Posts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/only/for/ligue1"
-    );
-    setLigue1Posts(response.data);
+  const fetchLigue1Posts = async (setLigue1Posts, setIsAxiosLoadingForPost) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/only/for/ligue1")
+      .then((response) => {
+        setLigue1Posts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // CL
-  const fetchClPosts = async (setClPosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/only/for/cl"
-    );
-    setClPosts(response.data);
+  const fetchClPosts = async (setClPosts, setIsAxiosLoadingForPost) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/only/for/cl")
+      .then((response) => {
+        setClPosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // EL
-  const fetchElPosts = async (setElPosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/only/for/el"
-    );
-    setElPosts(response.data);
+  const fetchElPosts = async (setElPosts, setIsAxiosLoadingForPost) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/only/for/el")
+      .then((response) => {
+        setElPosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // JLeague
-  const fetchJlPosts = async (setJlPosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/only/for/jleague"
-    );
-    setJlPosts(response.data);
+  const fetchJlPosts = async (setJlPosts, setIsAxiosLoadingForPost) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/only/for/jleague")
+      .then((response) => {
+        setJlPosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
   // National
-  const fetchNationalPosts = async (setNationalPosts) => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL + "/posts/only/for/national"
-    );
-    setNationalPosts(response.data);
+  const fetchNationalPosts = async (
+    setNationalPosts,
+    setIsAxiosLoadingForPost
+  ) => {
+    setIsAxiosLoadingForPost(true);
+    const response = await axios
+      .get(process.env.REACT_APP_API_URL + "/posts/only/for/national")
+      .then((response) => {
+        setNationalPosts(response.data);
+        setIsAxiosLoadingForPost(false);
+      })
+      .catch((err) => console.log(err));
   };
 
   return {
+    isAxiosLoadingForPost,
+    setIsAxiosLoadingForPost,
     fetchPremierHomePosts,
     fetchLaligaHomePosts,
     fetchBundesHomePosts,
