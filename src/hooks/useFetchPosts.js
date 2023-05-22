@@ -14,7 +14,7 @@ export const useFetchPosts = () => {
     setIsAxiosLoadingForPost
   ) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/home/premier")
       .then((response) => {
         setPremierHomePosts(response.data);
@@ -31,7 +31,7 @@ export const useFetchPosts = () => {
     setIsAxiosLoadingForPost
   ) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/home/laliga")
       .then((response) => {
         setLaligaHomePosts(response.data);
@@ -48,7 +48,7 @@ export const useFetchPosts = () => {
     setIsAxiosLoadingForPost
   ) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/home/bundes")
       .then((response) => {
         setBundesHomePosts(response.data);
@@ -65,7 +65,7 @@ export const useFetchPosts = () => {
     setIsAxiosLoadingForPost
   ) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/home/seriea")
       .then((response) => {
         setSerieaHomePosts(response.data);
@@ -82,7 +82,7 @@ export const useFetchPosts = () => {
     setIsAxiosLoadingForPost
   ) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/home/ligue1")
       .then((response) => {
         setLigue1HomePosts(response.data);
@@ -96,7 +96,7 @@ export const useFetchPosts = () => {
   // CL
   const fetchClHomePosts = async (setClHomePosts, setIsAxiosLoadingForPost) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/home/cl")
       .then((response) => {
         setClHomePosts(response.data);
@@ -110,7 +110,7 @@ export const useFetchPosts = () => {
   // EL
   const fetchElHomePosts = async (setElHomePosts, setIsAxiosLoadingForPost) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/home/el")
       .then((response) => {
         setElHomePosts(response.data);
@@ -129,7 +129,7 @@ export const useFetchPosts = () => {
     setIsAxiosLoadingForPost
   ) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/only/for/premier")
       .then((response) => {
         setPremierPosts(response.data);
@@ -143,7 +143,7 @@ export const useFetchPosts = () => {
   // ラリーガ
   const fetchLaligaPosts = async (setLaligaPosts, setIsAxiosLoadingForPost) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/only/for/laliga")
       .then((response) => {
         setLaligaPosts(response.data);
@@ -157,7 +157,7 @@ export const useFetchPosts = () => {
   // ブンデスリーガ
   const fetchBundesPosts = async (setBundesPosts, setIsAxiosLoadingForPost) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/only/for/bundes")
       .then((response) => {
         setBundesPosts(response.data);
@@ -171,7 +171,7 @@ export const useFetchPosts = () => {
   // セリエA
   const fetchSerieaPosts = async (setSerieaPosts, setIsAxiosLoadingForPost) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/only/for/seriea")
       .then((response) => {
         setSerieaPosts(response.data);
@@ -185,7 +185,7 @@ export const useFetchPosts = () => {
   // リーグ・アン
   const fetchLigue1Posts = async (setLigue1Posts, setIsAxiosLoadingForPost) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/only/for/ligue1")
       .then((response) => {
         setLigue1Posts(response.data);
@@ -199,7 +199,7 @@ export const useFetchPosts = () => {
   // CL
   const fetchClPosts = async (setClPosts, setIsAxiosLoadingForPost) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/only/for/cl")
       .then((response) => {
         setClPosts(response.data);
@@ -213,7 +213,7 @@ export const useFetchPosts = () => {
   // EL
   const fetchElPosts = async (setElPosts, setIsAxiosLoadingForPost) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/only/for/el")
       .then((response) => {
         setElPosts(response.data);
@@ -227,7 +227,7 @@ export const useFetchPosts = () => {
   // JLeague
   const fetchJlPosts = async (setJlPosts, setIsAxiosLoadingForPost) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/only/for/jleague")
       .then((response) => {
         setJlPosts(response.data);
@@ -244,7 +244,7 @@ export const useFetchPosts = () => {
     setIsAxiosLoadingForPost
   ) => {
     setIsAxiosLoadingForPost(true);
-    const response = await axios
+    await axios
       .get(process.env.REACT_APP_API_URL + "/posts/only/for/national")
       .then((response) => {
         setNationalPosts(response.data);
