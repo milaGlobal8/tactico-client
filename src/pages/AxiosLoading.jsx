@@ -10,7 +10,7 @@ export default function AxiosLoading({ loadingMsg }) {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        minHeight: "70px",
+        minHeight: "100vh",
       }}
     >
       <p className="text-primary">{loadingMsg}</p>
