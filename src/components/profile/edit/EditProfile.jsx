@@ -22,6 +22,9 @@ import CropEasy from "../../crop/CropEasy";
 const EditProfile = () => {
   const navigate = useNavigate();
 
+  // 編集ローディング
+  const [isEditLoading, setIsEditLoading] = useState(false);
+
   // context
   const { user, dispatch } = useContext(AuthContext);
   // state
@@ -66,6 +69,7 @@ const EditProfile = () => {
     e.preventDefault();
 
     try {
+      setIsEditLoading(true);
       // 画像に変更がなかったら
       if (file === user.profilePicture) {
         const updatedInfo = {
@@ -94,6 +98,9 @@ const EditProfile = () => {
             };
             updateCall(data, dispatch);
           })
+          .then(() => {
+            setIsEditLoading(false);
+          })
           .catch((err) => {
             setErrorMsg(err.response.data);
             setIsError(true);
@@ -121,7 +128,10 @@ const EditProfile = () => {
               process.env.REACT_APP_API_URL + `/posts/${user._id}`,
               updatedInfo
             )
-            .catch((err) => console.log(err.response.data));
+            .catch((err) => {
+              console.log(err.response.data);
+              navigate("*");
+            });
 
           // 画像をS3に保存してからデータベースへ送信
           await axios
@@ -144,6 +154,9 @@ const EditProfile = () => {
                 __v: response.data.__v,
               };
               updateCall(data, dispatch);
+            })
+            .then(() => {
+              setIsEditLoading(false);
             })
             .then(() => {
               navigate("/profile");
@@ -178,7 +191,10 @@ const EditProfile = () => {
               process.env.REACT_APP_API_URL + `/posts/${user._id}`,
               updatedInfo
             )
-            .catch((err) => console.log(err.response.data));
+            .catch((err) => {
+              console.log(err.response.data);
+              navigate("*");
+            });
 
           // 画像をS3に保存してからデータベースへ送信
           await axios
@@ -203,6 +219,9 @@ const EditProfile = () => {
               updateCall(data, dispatch);
             })
             .then(() => {
+              setIsEditLoading(false);
+            })
+            .then(() => {
               navigate("/profile");
             })
             .catch((err) => {
@@ -219,88 +238,92 @@ const EditProfile = () => {
 
   return !openCrop ? (
     <>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <DialogContent dividers>
-          <DialogContentText sx={{ fontSize: "medium" }}>
-            プロフィール設定
-          </DialogContentText>
-          <hr className="mt-1" />
-          <Box
-            className="user_profile_picture"
-            sx={{ display: "flex", alignItems: "center" }}
-          >
-            <label htmlFor="profilePicture">
-              <input
-                accept="image/*"
-                id="profilePicture"
-                type="file"
-                style={{ display: "none" }}
-                onChange={handleChangeFile}
-              />
-              <Avatar
-                className="user_profilePicture border border-dark"
-                src={photoURL ? photoURL : sampleIcon}
-                sx={{
-                  width: 75,
-                  height: 75,
-                  cursor: "pointer",
-                }}
-              />
-            </label>
-            {photoURL && (
-              <IconButton
-                aria-label="Crop"
-                color="primary"
-                onClick={() => setOpenCrop(true)}
-              >
-                <CropIcon />
-              </IconButton>
-            )}
-          </Box>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            className="another_username"
-          >
-            {user.username}
-          </Typography>
-          <TextField
-            label="自己紹介"
-            autoFocus
-            id="standard-multiline-flexible"
-            margin="normal"
-            type="text"
-            inputProps={{ minLength: 2 }}
-            fullWidth
-            multiline
-            maxRows={10}
-            variant="standard"
-            value={desc || ""}
-            required
-            onChange={(e) => setDesc(e.target.value)}
-          />
-        </DialogContent>
-        {/* エラーが帰ってきたら */}
-        {isError ? (
-          <Alert severity="error" className="mt-2">
-            {errorMsg}
-          </Alert>
-        ) : (
-          <></>
-        )}
-        <DialogActions>
-          <Button
-            className="edit_btn"
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 3 }}
-          >
-            編集する
-          </Button>
-        </DialogActions>
-      </form>
+      {isEditLoading ? (
+        <AxiosLoading loadingMsg="編集中です" />
+      ) : (
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <DialogContent dividers>
+            <DialogContentText sx={{ fontSize: "medium" }}>
+              プロフィール設定
+            </DialogContentText>
+            <hr className="mt-1" />
+            <Box
+              className="user_profile_picture"
+              sx={{ display: "flex", alignItems: "center" }}
+            >
+              <label htmlFor="profilePicture">
+                <input
+                  accept="image/*"
+                  id="profilePicture"
+                  type="file"
+                  style={{ display: "none" }}
+                  onChange={handleChangeFile}
+                />
+                <Avatar
+                  className="user_profilePicture border border-dark"
+                  src={photoURL ? photoURL : sampleIcon}
+                  sx={{
+                    width: 75,
+                    height: 75,
+                    cursor: "pointer",
+                  }}
+                />
+              </label>
+              {photoURL && (
+                <IconButton
+                  aria-label="Crop"
+                  color="primary"
+                  onClick={() => setOpenCrop(true)}
+                >
+                  <CropIcon />
+                </IconButton>
+              )}
+            </Box>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              className="another_username"
+            >
+              {user.username}
+            </Typography>
+            <TextField
+              label="自己紹介"
+              autoFocus
+              id="standard-multiline-flexible"
+              margin="normal"
+              type="text"
+              inputProps={{ minLength: 2 }}
+              fullWidth
+              multiline
+              maxRows={10}
+              variant="standard"
+              value={desc || ""}
+              required
+              onChange={(e) => setDesc(e.target.value)}
+            />
+          </DialogContent>
+          {/* エラーが帰ってきたら */}
+          {isError ? (
+            <Alert severity="error" className="mt-2">
+              {errorMsg}
+            </Alert>
+          ) : (
+            <></>
+          )}
+          <DialogActions>
+            <Button
+              className="edit_btn"
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 3 }}
+            >
+              編集する
+            </Button>
+          </DialogActions>
+        </form>
+      )}
     </>
   ) : (
     <CropEasy {...{ photoURL, setOpenCrop, setPhotoURL, setFile }} />

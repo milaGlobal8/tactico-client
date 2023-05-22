@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const useFetchPosts = () => {
+  const navigate = useNavigate();
+
   // axios処理中のstate [true-ローディング表示/false-非表示]
   const [isAxiosLoadingForPost, setIsAxiosLoadingForPost] = useState(true);
   // Home用
@@ -17,7 +20,10 @@ export const useFetchPosts = () => {
         setPremierHomePosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // ラリーガ
   const fetchLaligaHomePosts = async (
@@ -31,7 +37,10 @@ export const useFetchPosts = () => {
         setLaligaHomePosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // ブンデスリーガ
   const fetchBundesHomePosts = async (
@@ -45,7 +54,10 @@ export const useFetchPosts = () => {
         setBundesHomePosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // セリエA
   const fetchSerieaHomePosts = async (
@@ -59,7 +71,10 @@ export const useFetchPosts = () => {
         setSerieaHomePosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // リーグ・アン
   const fetchLigue1HomePosts = async (
@@ -73,7 +88,10 @@ export const useFetchPosts = () => {
         setLigue1HomePosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // CL
   const fetchClHomePosts = async (setClHomePosts, setIsAxiosLoadingForPost) => {
@@ -84,7 +102,10 @@ export const useFetchPosts = () => {
         setClHomePosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // EL
   const fetchElHomePosts = async (setElHomePosts, setIsAxiosLoadingForPost) => {
@@ -95,7 +116,10 @@ export const useFetchPosts = () => {
         setElHomePosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
 
   // 各ページ用
@@ -111,7 +135,10 @@ export const useFetchPosts = () => {
         setPremierPosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // ラリーガ
   const fetchLaligaPosts = async (setLaligaPosts, setIsAxiosLoadingForPost) => {
@@ -122,7 +149,10 @@ export const useFetchPosts = () => {
         setLaligaPosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // ブンデスリーガ
   const fetchBundesPosts = async (setBundesPosts, setIsAxiosLoadingForPost) => {
@@ -133,7 +163,10 @@ export const useFetchPosts = () => {
         setBundesPosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // セリエA
   const fetchSerieaPosts = async (setSerieaPosts, setIsAxiosLoadingForPost) => {
@@ -144,7 +177,10 @@ export const useFetchPosts = () => {
         setSerieaPosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // リーグ・アン
   const fetchLigue1Posts = async (setLigue1Posts, setIsAxiosLoadingForPost) => {
@@ -155,7 +191,10 @@ export const useFetchPosts = () => {
         setLigue1Posts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // CL
   const fetchClPosts = async (setClPosts, setIsAxiosLoadingForPost) => {
@@ -166,7 +205,10 @@ export const useFetchPosts = () => {
         setClPosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // EL
   const fetchElPosts = async (setElPosts, setIsAxiosLoadingForPost) => {
@@ -177,7 +219,10 @@ export const useFetchPosts = () => {
         setElPosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // JLeague
   const fetchJlPosts = async (setJlPosts, setIsAxiosLoadingForPost) => {
@@ -188,7 +233,10 @@ export const useFetchPosts = () => {
         setJlPosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
   // National
   const fetchNationalPosts = async (
@@ -202,7 +250,10 @@ export const useFetchPosts = () => {
         setNationalPosts(response.data);
         setIsAxiosLoadingForPost(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("*");
+      });
   };
 
   return {

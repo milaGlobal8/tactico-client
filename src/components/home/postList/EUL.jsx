@@ -70,7 +70,7 @@ const EUL = () => {
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
-          <AxiosLoading />
+          <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
         ) : (
           <>
             {premierHomePosts.map((post) => (
@@ -184,7 +184,7 @@ const EUL = () => {
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
-          <AxiosLoading />
+          <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
         ) : (
           <>
             {laligaHomePosts.map((post) => (
@@ -299,7 +299,7 @@ const EUL = () => {
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
-          <AxiosLoading />
+          <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
         ) : (
           <>
             {bundesHomePosts.map((post) => (
@@ -412,7 +412,7 @@ const EUL = () => {
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
-          <AxiosLoading />
+          <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
         ) : (
           <>
             {serieaHomePosts.map((post) => (
@@ -525,7 +525,7 @@ const EUL = () => {
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
-          <AxiosLoading />
+          <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
         ) : (
           <>
             {ligue1HomePosts.map((post) => (
@@ -638,7 +638,7 @@ const EUL = () => {
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
-          <AxiosLoading />
+          <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
         ) : (
           <>
             {clHomePosts.map((post) => (
@@ -752,7 +752,7 @@ const EUL = () => {
 
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
-          <AxiosLoading />
+          <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
         ) : (
           <>
             {elHomePosts.map((post) => (

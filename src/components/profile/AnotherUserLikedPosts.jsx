@@ -22,7 +22,7 @@ const AnotherUserLikedPosts = memo(({ user }) => {
   return (
     <>
       {isAxiosLoading ? (
-        <AxiosLoading />
+        <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
       ) : (
         <AntherUserLikedPost posts={AnotherUserLikedPosts} />
       )}

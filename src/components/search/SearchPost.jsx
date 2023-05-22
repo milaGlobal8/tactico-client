@@ -6,8 +6,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
 import ErrorComponent from "../common/ErrorComponent";
 import NotResult from "./NotResult";
+import AxiosLoading from "./../../pages/AxiosLoading";
 
 const SearchPost = () => {
+  // 検索ローディング
+  const [isSearchLoading, setIsSearchLoading] = useState(false);
   // 取得した投稿を格納する変数
   const [posts, setPosts] = useState([]);
   // ヒットしなかった場合に出すコンポーネント
@@ -21,32 +24,56 @@ const SearchPost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (
-      keyword.current.value === "" ||
-      typeof keyword.current.value === "undefined" ||
-      keyword.current.value === null
-    ) {
-      setIsEmpty(false);
-      setIsAlert(true);
-      return;
-    }
+    try {
+      setIsSearchLoading(true);
 
-    if (isAlert === true) setIsAlert(false);
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL +
-        `/posts/search/post/${keyword.current.value}`
-    );
-
-    if (Object.keys(response.data).length === 0) {
-      setIsEmpty(true);
-
-      // もし前に検索した投稿があったら
-      if (posts) {
-        setPosts([]);
+      // 検索欄の中が空の場合
+      if (
+        keyword.current.value === "" ||
+        typeof keyword.current.value === "undefined" ||
+        keyword.current.value === null
+      ) {
+        setIsEmpty(false);
+        setIsAlert(true);
+        setIsSearchLoading(false);
+        return;
       }
-    } else {
-      setIsEmpty(false);
-      setPosts(response.data);
+
+      // 警告文が出ていたら消してから検索
+      if (isAlert === true) {
+        setIsSearchLoading(false);
+        setIsAlert(false);
+      }
+
+      const response = await axios
+        .get(
+          process.env.REACT_APP_API_URL +
+            `/posts/search/post/${keyword.current.value}`
+        )
+        .then((response) => {
+          if (Object.keys(response.data).length === 0) {
+            setIsEmpty(true);
+            setIsSearchLoading(false);
+            // もし前に検索した投稿があったら空にする
+            if (posts) {
+              setPosts([]);
+            }
+          } else {
+            setIsEmpty(false);
+            setIsSearchLoading(false);
+            setPosts(response.data);
+          }
+        })
+        .catch((err) => {
+          setIsSearchLoading(false);
+          console.log(err);
+          navigate("*");
+        });
+      setIsSearchLoading(false);
+    } catch (err) {
+      setIsSearchLoading(false);
+      console.log(err);
+      navigate("*");
     }
   };
 
@@ -90,8 +117,14 @@ const SearchPost = () => {
       <div className="result border border-dark bg-light">
         <h2 className="text-center py-2 m-0">検索結果</h2>
       </div>
-      {isEmpty ? <NotResult /> : <></>}
-      {isAlert ? <ErrorComponent /> : <ResultPost posts={posts} />}
+      {isSearchLoading ? (
+        <AxiosLoading loadingMsg="検索中です" />
+      ) : (
+        <>
+          {isEmpty ? <NotResult /> : <></>}
+          {isAlert ? <ErrorComponent /> : <ResultPost posts={posts} />}
+        </>
+      )}
     </div>
   );
 };

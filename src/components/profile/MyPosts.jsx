@@ -21,7 +21,15 @@ const MyPosts = memo(() => {
   }
 
   // あったら
-  return <>{isAxiosLoading ? <AxiosLoading /> : <MyPost posts={myPosts} />}</>;
+  return (
+    <>
+      {isAxiosLoading ? (
+        <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
+      ) : (
+        <MyPost posts={myPosts} />
+      )}
+    </>
+  );
 });
 
 export default MyPosts;

@@ -43,7 +43,7 @@ const IsaPosts = () => {
         </h3>
         {/* 投稿 */}
         {isAxiosLoading ? (
-          <AxiosLoading />
+          <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
         ) : (
           <>
             {serieaPosts.map((post) => (

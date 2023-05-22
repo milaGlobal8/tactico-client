@@ -22,7 +22,13 @@ const LikedPosts = memo(() => {
 
   // あったら
   return (
-    <>{isAxiosLoading ? <AxiosLoading /> : <LikedPost posts={likedPosts} />}</>
+    <>
+      {isAxiosLoading ? (
+        <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
+      ) : (
+        <LikedPost posts={likedPosts} />
+      )}
+    </>
   );
 });
 
