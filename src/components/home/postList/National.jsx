@@ -23,25 +23,25 @@ const National = () => {
   }, []);
 
   return (
-    <>
+    <div
+      className="National container-fluid p-0"
+      style={{ minHeight: "100vh" }}
+    >
+      <h3
+        className="container-fluid border border-dark p-0 m-0 text-center"
+        style={{
+          background:
+            "linear-gradient(45deg, #356dff 0%, #000000 50%, #000000 50%, #356dff 100%)",
+          color: "#ffffff",
+        }}
+      >
+        National
+      </h3>
+      {/* 投稿 */}
       {isAxiosLoadingForPost ? (
         <AxiosLoading />
       ) : (
-        <div
-          className="National container-fluid p-0"
-          style={{ minHeight: "100vh" }}
-        >
-          <h3
-            className="container-fluid border border-dark p-0 m-0 text-center"
-            style={{
-              background:
-                "linear-gradient(45deg, #356dff 0%, #000000 50%, #000000 50%, #356dff 100%)",
-              color: "#ffffff",
-            }}
-          >
-            National
-          </h3>
-          {/* 投稿 */}
+        <>
           {nationalPosts.map((post) => (
             <div
               key={post._id}
@@ -121,9 +121,9 @@ const National = () => {
               </Button>
             </div>
           ))}
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 };
 

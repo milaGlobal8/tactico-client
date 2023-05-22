@@ -15,9 +15,10 @@ const IsaPosts = () => {
   const [serieaPosts, setSerieaPosts] = useState([]);
 
   // データベースから投稿データすべてをとってくる
-  const { fetchSerieaPosts } = useFetchPosts();
+  const { isAxiosLoading, setIsAxiosLoading, fetchSerieaPosts } =
+    useFetchPosts();
   useEffect(() => {
-    fetchSerieaPosts(setSerieaPosts);
+    fetchSerieaPosts(setSerieaPosts, setIsAxiosLoading);
   }, []);
 
   return (
@@ -40,85 +41,91 @@ const IsaPosts = () => {
           SERIE A
         </h3>
         {/* 投稿 */}
-        {serieaPosts.map((post) => (
-          <div
-            key={post._id}
-            className="userInfoBox container-fluid border border-dark p-0 m-0 row"
-            style={{ backgroundColor: "rgba(39,142,255,0.1)" }}
-          >
-            {/* ユーザー情報 */}
-            {currentUser ? (
-              <Button
-                variant="text"
-                className="col-3 d-flex flex-column"
-                onClick={() =>
-                  navigate(`/profile/${post.username}`, { state: post })
-                }
+        {isAxiosLoading ? (
+          <AxiosLoading />
+        ) : (
+          <>
+            {serieaPosts.map((post) => (
+              <div
+                key={post._id}
+                className="userInfoBox container-fluid border border-dark p-0 m-0 row"
+                style={{ backgroundColor: "rgba(39,142,255,0.1)" }}
               >
-                <Avatar
-                  alt="user_profilePicture"
-                  src={
-                    post.profilePicture
-                      ? process.env.REACT_APP_API_URL +
-                        `/users/profilePicture/${post.profilePicture}`
-                      : sampleIconImg
-                  }
-                  className="border border-dark m-0"
-                />
-                <Typography
-                  gutterBottom
-                  variant="subtitle1"
-                  component="div"
-                  textTransform="none"
-                >
-                  {post.username}
-                </Typography>
-              </Button>
-            ) : (
-              <Tooltip title="ログインされた方のみ閲覧することができます">
-                <Button variant="text" className="col-3 d-flex flex-column">
-                  <Avatar
-                    alt="user_profilePicture"
-                    src={
-                      post.profilePicture
-                        ? process.env.REACT_APP_API_URL +
-                          `/users/profilePicture/${post.profilePicture}`
-                        : sampleIconImg
+                {/* ユーザー情報 */}
+                {currentUser ? (
+                  <Button
+                    variant="text"
+                    className="col-3 d-flex flex-column"
+                    onClick={() =>
+                      navigate(`/profile/${post.username}`, { state: post })
                     }
-                    className="border border-dark m-0"
-                  />
+                  >
+                    <Avatar
+                      alt="user_profilePicture"
+                      src={
+                        post.profilePicture
+                          ? process.env.REACT_APP_API_URL +
+                            `/users/profilePicture/${post.profilePicture}`
+                          : sampleIconImg
+                      }
+                      className="border border-dark m-0"
+                    />
+                    <Typography
+                      gutterBottom
+                      variant="subtitle1"
+                      component="div"
+                      textTransform="none"
+                    >
+                      {post.username}
+                    </Typography>
+                  </Button>
+                ) : (
+                  <Tooltip title="ログインされた方のみ閲覧することができます">
+                    <Button variant="text" className="col-3 d-flex flex-column">
+                      <Avatar
+                        alt="user_profilePicture"
+                        src={
+                          post.profilePicture
+                            ? process.env.REACT_APP_API_URL +
+                              `/users/profilePicture/${post.profilePicture}`
+                            : sampleIconImg
+                        }
+                        className="border border-dark m-0"
+                      />
+                      <Typography
+                        gutterBottom
+                        variant="subtitle1"
+                        component="div"
+                        textTransform="none"
+                      >
+                        {post.username}
+                      </Typography>
+                    </Button>
+                  </Tooltip>
+                )}
+                {/* 投稿内容 */}
+                <Button
+                  variant="text"
+                  className="col-9 d-flex flex-column p-3 m-0"
+                  onClick={() => navigate("/view-post", { state: post })}
+                >
                   <Typography
-                    gutterBottom
-                    variant="subtitle1"
-                    component="div"
+                    className="sentence text-center mx-auto"
                     textTransform="none"
                   >
-                    {post.username}
+                    <strong>{post.postTitle}</strong>
+                  </Typography>
+                  <Typography
+                    className="sentence text-center mx-auto"
+                    textTransform="none"
+                  >
+                    注目選手：{post.goodPlayer}
                   </Typography>
                 </Button>
-              </Tooltip>
-            )}
-            {/* 投稿内容 */}
-            <Button
-              variant="text"
-              className="col-9 d-flex flex-column p-3 m-0"
-              onClick={() => navigate("/view-post", { state: post })}
-            >
-              <Typography
-                className="sentence text-center mx-auto"
-                textTransform="none"
-              >
-                <strong>{post.postTitle}</strong>
-              </Typography>
-              <Typography
-                className="sentence text-center mx-auto"
-                textTransform="none"
-              >
-                注目選手：{post.goodPlayer}
-              </Typography>
-            </Button>
-          </div>
-        ))}
+              </div>
+            ))}
+          </>
+        )}
       </div>
       <Footer />
     </div>
