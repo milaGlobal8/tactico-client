@@ -7,8 +7,10 @@ import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
 import ErrorComponent from "../common/ErrorComponent";
 import NotResult from "./NotResult";
 import AxiosLoading from "./../../pages/AxiosLoading";
+import { useNavigate } from "react-router-dom";
 
 const SearchPost = () => {
+  const navigate = useNavigate();
   // 検索ローディング
   const [isSearchLoading, setIsSearchLoading] = useState(false);
   // 取得した投稿を格納する変数
