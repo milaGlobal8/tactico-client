@@ -8,7 +8,7 @@ const LikedPost = ({ posts }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="container-fluid p-0 border-bottom border-dark">
+    <div className="liked_posts container-fluid p-0 border-bottom border-dark">
       {/* 投稿 */}
       <div className="liked_posts_box" style={{ flex: 1 }}>
         {posts.map((post) => (
@@ -26,7 +26,7 @@ const LikedPost = ({ posts }) => {
               }
             >
               <Avatar
-                alt="sample"
+                alt="profile"
                 src={
                   post.profilePicture
                     ? process.env.REACT_APP_API_URL +
@@ -47,6 +47,7 @@ const LikedPost = ({ posts }) => {
             {/* 投稿内容 */}
             <Button
               variant="text"
+              sx={{ textTransform: "none" }}
               className="col-9 d-flex flex-column p-3 m-0"
               onClick={() => navigate("/view-post", { state: post })}
             >
