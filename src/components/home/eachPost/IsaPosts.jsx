@@ -6,6 +6,7 @@ import sampleIconImg from "../../../images/sampleIcon.png";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../state/AuthContext";
 import { useFetchPosts } from "../../../hooks/useFetchPosts";
+import AxiosLoading from "./../../../pages/AxiosLoading";
 
 const IsaPosts = () => {
   //navigateのインスタンス化
