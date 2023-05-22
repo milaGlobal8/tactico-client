@@ -25,7 +25,7 @@ const ResultPost = ({ posts }) => {
             }
           >
             <Avatar
-              alt="sample"
+              alt="profile"
               src={
                 post.profilePicture
                   ? process.env.REACT_APP_API_URL +

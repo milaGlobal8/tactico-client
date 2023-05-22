@@ -18,6 +18,7 @@ const MyPost = ({ posts }) => {
             {/* 投稿内容 */}
             <Button
               variant="text"
+              sx={{ textTransform: "none" }}
               className="d-flex flex-column p-3"
               onClick={() => navigate("/view-post", { state: post })}
             >
