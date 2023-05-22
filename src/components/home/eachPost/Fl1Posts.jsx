@@ -6,6 +6,7 @@ import sampleIconImg from "../../../images/sampleIcon.png";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../state/AuthContext";
 import { useFetchPosts } from "../../../hooks/useFetchPosts";
+import AxiosLoading from "./../../../pages/AxiosLoading";
 
 const Fl1Posts = () => {
   const navigate = useNavigate();
@@ -16,9 +17,10 @@ const Fl1Posts = () => {
   const [ligue1Posts, setLigue1Posts] = useState([]);
 
   // データベースから投稿データすべてをとってくる
-  const { fetchLigue1Posts } = useFetchPosts();
+  const { isAxiosLoadingForPost, setIsAxiosLoadingForPost, fetchLigue1Posts } =
+    useFetchPosts();
   useEffect(() => {
-    fetchLigue1Posts(setLigue1Posts);
+    fetchLigue1Posts(setLigue1Posts, setIsAxiosLoadingForPost);
   }, []);
   return (
     <div
@@ -40,85 +42,91 @@ const Fl1Posts = () => {
           LIGUE 1
         </h3>
         {/* 投稿 */}
-        {ligue1Posts.map((post) => (
-          <div
-            key={post._id}
-            className="userInfoBox container-fluid border border-dark p-0 m-0 row"
-            style={{ backgroundColor: "rgba(98,133,13,0.1)" }}
-          >
-            {/* ユーザー情報 */}
-            {currentUser ? (
-              <Button
-                variant="text"
-                className="col-3 d-flex flex-column"
-                onClick={() =>
-                  navigate(`/profile/${post.username}`, { state: post })
-                }
+        {isAxiosLoadingForPost ? (
+          <AxiosLoading />
+        ) : (
+          <>
+            {ligue1Posts.map((post) => (
+              <div
+                key={post._id}
+                className="userInfoBox container-fluid border border-dark p-0 m-0 row"
+                style={{ backgroundColor: "rgba(98,133,13,0.1)" }}
               >
-                <Avatar
-                  alt="user_profilePicture"
-                  src={
-                    post.profilePicture
-                      ? process.env.REACT_APP_API_URL +
-                        `/users/profilePicture/${post.profilePicture}`
-                      : sampleIconImg
-                  }
-                  className="border border-dark m-0"
-                />
-                <Typography
-                  gutterBottom
-                  variant="subtitle1"
-                  component="div"
-                  textTransform="none"
-                >
-                  {post.username}
-                </Typography>
-              </Button>
-            ) : (
-              <Tooltip title="ログインされた方のみ閲覧することができます">
-                <Button variant="text" className="col-3 d-flex flex-column">
-                  <Avatar
-                    alt="user_profilePicture"
-                    src={
-                      post.profilePicture
-                        ? process.env.REACT_APP_API_URL +
-                          `/users/profilePicture/${post.profilePicture}`
-                        : sampleIconImg
+                {/* ユーザー情報 */}
+                {currentUser ? (
+                  <Button
+                    variant="text"
+                    className="col-3 d-flex flex-column"
+                    onClick={() =>
+                      navigate(`/profile/${post.username}`, { state: post })
                     }
-                    className="border border-dark m-0"
-                  />
+                  >
+                    <Avatar
+                      alt="user_profilePicture"
+                      src={
+                        post.profilePicture
+                          ? process.env.REACT_APP_API_URL +
+                            `/users/profilePicture/${post.profilePicture}`
+                          : sampleIconImg
+                      }
+                      className="border border-dark m-0"
+                    />
+                    <Typography
+                      gutterBottom
+                      variant="subtitle1"
+                      component="div"
+                      textTransform="none"
+                    >
+                      {post.username}
+                    </Typography>
+                  </Button>
+                ) : (
+                  <Tooltip title="ログインされた方のみ閲覧することができます">
+                    <Button variant="text" className="col-3 d-flex flex-column">
+                      <Avatar
+                        alt="user_profilePicture"
+                        src={
+                          post.profilePicture
+                            ? process.env.REACT_APP_API_URL +
+                              `/users/profilePicture/${post.profilePicture}`
+                            : sampleIconImg
+                        }
+                        className="border border-dark m-0"
+                      />
+                      <Typography
+                        gutterBottom
+                        variant="subtitle1"
+                        component="div"
+                        textTransform="none"
+                      >
+                        {post.username}
+                      </Typography>
+                    </Button>
+                  </Tooltip>
+                )}
+                {/* 投稿内容 */}
+                <Button
+                  variant="text"
+                  className="col-9 d-flex flex-column p-3 m-0"
+                  onClick={() => navigate("/view-post", { state: post })}
+                >
                   <Typography
-                    gutterBottom
-                    variant="subtitle1"
-                    component="div"
+                    className="sentence text-center mx-auto"
                     textTransform="none"
                   >
-                    {post.username}
+                    <strong>{post.postTitle}</strong>
+                  </Typography>
+                  <Typography
+                    className="sentence text-center mx-auto"
+                    textTransform="none"
+                  >
+                    注目選手：{post.goodPlayer}
                   </Typography>
                 </Button>
-              </Tooltip>
-            )}
-            {/* 投稿内容 */}
-            <Button
-              variant="text"
-              className="col-9 d-flex flex-column p-3 m-0"
-              onClick={() => navigate("/view-post", { state: post })}
-            >
-              <Typography
-                className="sentence text-center mx-auto"
-                textTransform="none"
-              >
-                <strong>{post.postTitle}</strong>
-              </Typography>
-              <Typography
-                className="sentence text-center mx-auto"
-                textTransform="none"
-              >
-                注目選手：{post.goodPlayer}
-              </Typography>
-            </Button>
-          </div>
-        ))}
+              </div>
+            ))}
+          </>
+        )}
       </div>
       <Footer />
     </div>

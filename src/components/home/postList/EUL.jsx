@@ -52,27 +52,27 @@ const EUL = () => {
   const navigate = useNavigate();
 
   return (
-    <>
-      {isAxiosLoadingForPost ? (
-        <AxiosLoading />
-      ) : (
-        <div
-          className="eul container-fluid p-0 d-flex flex-column"
-          style={{ flex: 1 }}
+    <div
+      className="eul container-fluid p-0 d-flex flex-column"
+      style={{ flex: 1 }}
+    >
+      {/* プレミアリーグ */}
+      <div className="EPL container-fluid border border-dark p-0">
+        <h3
+          className="container-fluid border border-dark p-0 m-0 text-center"
+          style={{
+            background:
+              "linear-gradient(45deg, #ff015b 0%, #05f1ff 50%, #05f1ff 50%, #00ff87 100%)",
+            color: "#37003c",
+          }}
         >
-          {/* プレミアリーグ */}
-          <div className="EPL container-fluid border border-dark p-0">
-            <h3
-              className="container-fluid border border-dark p-0 m-0 text-center"
-              style={{
-                background:
-                  "linear-gradient(45deg, #ff015b 0%, #05f1ff 50%, #05f1ff 50%, #00ff87 100%)",
-                color: "#37003c",
-              }}
-            >
-              English Premier League
-            </h3>
-            {/* 投稿 */}
+          English Premier League
+        </h3>
+        {/* 投稿 */}
+        {isAxiosLoadingForPost ? (
+          <AxiosLoading />
+        ) : (
+          <>
             {premierHomePosts.map((post) => (
               <div
                 key={post._id}
@@ -152,35 +152,41 @@ const EUL = () => {
                 </Button>
               </div>
             ))}
+          </>
+        )}
 
-            {/* すべて見る ボタンの実装 */}
-            <div className="border border-dark">
-              <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
-                <button
-                  className="btn btn-dark"
-                  type="button"
-                  onClick={() => navigate("/eplPosts")}
-                >
-                  すべて見る
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* リーガ・エスパニョーラ */}
-
-          <div className="SLE container-fluid border border-dark p-0">
-            <h3
-              className="container-fluid border-start border-end border-bottom border-dark p-0 m-0 text-center"
-              style={{
-                background:
-                  "linear-gradient(45deg,  #f3e64c 0%, #da882f 50%, #da882f 50%, #f3e64c 100%)",
-                color: "white",
-              }}
+        {/* すべて見る ボタンの実装 */}
+        <div className="border border-dark">
+          <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
+            <button
+              className="btn btn-dark"
+              type="button"
+              onClick={() => navigate("/eplPosts")}
             >
-              LaLiga
-            </h3>
-            {/* 投稿 */}
+              すべて見る
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* リーガ・エスパニョーラ */}
+
+      <div className="SLE container-fluid border border-dark p-0">
+        <h3
+          className="container-fluid border-start border-end border-bottom border-dark p-0 m-0 text-center"
+          style={{
+            background:
+              "linear-gradient(45deg,  #f3e64c 0%, #da882f 50%, #da882f 50%, #f3e64c 100%)",
+            color: "white",
+          }}
+        >
+          LaLiga
+        </h3>
+        {/* 投稿 */}
+        {isAxiosLoadingForPost ? (
+          <AxiosLoading />
+        ) : (
+          <>
             {laligaHomePosts.map((post) => (
               <div
                 key={post._id}
@@ -262,34 +268,40 @@ const EUL = () => {
                 </Button>
               </div>
             ))}
+          </>
+        )}
 
-            {/* すべて見る ボタンの実装 */}
-            <div className="border border-dark">
-              <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
-                <button
-                  className="btn btn-dark"
-                  type="button"
-                  onClick={() => navigate("/sllPosts")}
-                >
-                  すべて見る
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* ドイツ・ブンデスリーガ */}
-          <div className="GBL container-fluid border border-dark p-0">
-            <h3
-              className="container-fluid border-bottom border-dark p-0 m-0 text-center"
-              style={{
-                background:
-                  "linear-gradient(45deg, #d10214 0%, #d10214 50%, #d10214 50%, #d10214 100%)",
-                color: "#191917",
-              }}
+        {/* すべて見る ボタンの実装 */}
+        <div className="border border-dark">
+          <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
+            <button
+              className="btn btn-dark"
+              type="button"
+              onClick={() => navigate("/sllPosts")}
             >
-              BUNDESLIGA
-            </h3>
-            {/* 投稿 */}
+              すべて見る
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* ドイツ・ブンデスリーガ */}
+      <div className="GBL container-fluid border border-dark p-0">
+        <h3
+          className="container-fluid border-bottom border-dark p-0 m-0 text-center"
+          style={{
+            background:
+              "linear-gradient(45deg, #d10214 0%, #d10214 50%, #d10214 50%, #d10214 100%)",
+            color: "#191917",
+          }}
+        >
+          BUNDESLIGA
+        </h3>
+        {/* 投稿 */}
+        {isAxiosLoadingForPost ? (
+          <AxiosLoading />
+        ) : (
+          <>
             {bundesHomePosts.map((post) => (
               <div
                 key={post._id}
@@ -369,34 +381,40 @@ const EUL = () => {
                 </Button>
               </div>
             ))}
+          </>
+        )}
 
-            {/* すべて見る ボタンの実装 */}
-            <div className="border border-dark">
-              <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
-                <button
-                  className="btn btn-dark"
-                  type="button"
-                  onClick={() => navigate("/gblPosts")}
-                >
-                  すべて見る
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* イタリア・セリエA */}
-          <div className="ISA container-fluid border border-dark p-0">
-            <h3
-              className="container-fluid border-bottom border-dark p-0 m-0 text-center"
-              style={{
-                background:
-                  "linear-gradient(45deg, #22d2ff 0%, #038aff 50%, #038aff 50%, #22d2ff 100%)",
-                color: "#37003c",
-              }}
+        {/* すべて見る ボタンの実装 */}
+        <div className="border border-dark">
+          <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
+            <button
+              className="btn btn-dark"
+              type="button"
+              onClick={() => navigate("/gblPosts")}
             >
-              SERIE A
-            </h3>
-            {/* 投稿 */}
+              すべて見る
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* イタリア・セリエA */}
+      <div className="ISA container-fluid border border-dark p-0">
+        <h3
+          className="container-fluid border-bottom border-dark p-0 m-0 text-center"
+          style={{
+            background:
+              "linear-gradient(45deg, #22d2ff 0%, #038aff 50%, #038aff 50%, #22d2ff 100%)",
+            color: "#37003c",
+          }}
+        >
+          SERIE A
+        </h3>
+        {/* 投稿 */}
+        {isAxiosLoadingForPost ? (
+          <AxiosLoading />
+        ) : (
+          <>
             {serieaHomePosts.map((post) => (
               <div
                 key={post._id}
@@ -476,34 +494,40 @@ const EUL = () => {
                 </Button>
               </div>
             ))}
+          </>
+        )}
 
-            {/* すべて見る ボタンの実装 */}
-            <div className="border border-dark">
-              <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
-                <button
-                  className="btn btn-dark"
-                  type="button"
-                  onClick={() => navigate("/isaPosts")}
-                >
-                  すべて見る
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* フランス・リーグ１ */}
-          <div className="FL1 container-fluid border border-dark p-0">
-            <h3
-              className="container-fluid border-bottom border-dark p-0 m-0 text-center"
-              style={{
-                background:
-                  "linear-gradient(45deg, #091c3e 0%, #091c3e 50%, #091c3e 50%, #091c3e 100%)",
-                color: "#cdfb0a",
-              }}
+        {/* すべて見る ボタンの実装 */}
+        <div className="border border-dark">
+          <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
+            <button
+              className="btn btn-dark"
+              type="button"
+              onClick={() => navigate("/isaPosts")}
             >
-              LIGUE 1
-            </h3>
-            {/* 投稿 */}
+              すべて見る
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* フランス・リーグ１ */}
+      <div className="FL1 container-fluid border border-dark p-0">
+        <h3
+          className="container-fluid border-bottom border-dark p-0 m-0 text-center"
+          style={{
+            background:
+              "linear-gradient(45deg, #091c3e 0%, #091c3e 50%, #091c3e 50%, #091c3e 100%)",
+            color: "#cdfb0a",
+          }}
+        >
+          LIGUE 1
+        </h3>
+        {/* 投稿 */}
+        {isAxiosLoadingForPost ? (
+          <AxiosLoading />
+        ) : (
+          <>
             {ligue1HomePosts.map((post) => (
               <div
                 key={post._id}
@@ -583,34 +607,40 @@ const EUL = () => {
                 </Button>
               </div>
             ))}
+          </>
+        )}
 
-            {/* すべて見る ボタンの実装 */}
-            <div className="border border-dark">
-              <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
-                <button
-                  className="btn btn-dark"
-                  type="button"
-                  onClick={() => navigate("/fl1Posts")}
-                >
-                  すべて見る
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* CL */}
-          <div className="CL container-fluid border border-dark p-0">
-            <h3
-              className="container-fluid border-bottom border-dark p-0 m-0 text-center"
-              style={{
-                background:
-                  "linear-gradient(45deg, #fffefd 0%, #00074b 15%, #00074b 75%, #fffefd 100%)",
-                color: "#fffefd",
-              }}
+        {/* すべて見る ボタンの実装 */}
+        <div className="border border-dark">
+          <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
+            <button
+              className="btn btn-dark"
+              type="button"
+              onClick={() => navigate("/fl1Posts")}
             >
-              CL
-            </h3>
-            {/* 投稿 */}
+              すべて見る
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* CL */}
+      <div className="CL container-fluid border border-dark p-0">
+        <h3
+          className="container-fluid border-bottom border-dark p-0 m-0 text-center"
+          style={{
+            background:
+              "linear-gradient(45deg, #fffefd 0%, #00074b 15%, #00074b 75%, #fffefd 100%)",
+            color: "#fffefd",
+          }}
+        >
+          CL
+        </h3>
+        {/* 投稿 */}
+        {isAxiosLoadingForPost ? (
+          <AxiosLoading />
+        ) : (
+          <>
             {clHomePosts.map((post) => (
               <div
                 key={post._id}
@@ -690,35 +720,41 @@ const EUL = () => {
                 </Button>
               </div>
             ))}
+          </>
+        )}
 
-            {/* すべて見る ボタンの実装 */}
-            <div className="border border-dark">
-              <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
-                <button
-                  className="btn btn-dark"
-                  type="button"
-                  onClick={() => navigate("/clPosts")}
-                >
-                  すべて見る
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* EL */}
-          <div className="EL container-fluid border border-dark p-0">
-            <h3
-              className="container-fluid border-bottom border-dark p-0 m-0 text-center"
-              style={{
-                background:
-                  "linear-gradient(45deg, #ed7701 0%, #000000 50%, #000000 50%, #ed7701 100%)",
-                color: "#ffffff",
-              }}
+        {/* すべて見る ボタンの実装 */}
+        <div className="border border-dark">
+          <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
+            <button
+              className="btn btn-dark"
+              type="button"
+              onClick={() => navigate("/clPosts")}
             >
-              EL
-            </h3>
+              すべて見る
+            </button>
+          </div>
+        </div>
+      </div>
 
-            {/* 投稿 */}
+      {/* EL */}
+      <div className="EL container-fluid border border-dark p-0">
+        <h3
+          className="container-fluid border-bottom border-dark p-0 m-0 text-center"
+          style={{
+            background:
+              "linear-gradient(45deg, #ed7701 0%, #000000 50%, #000000 50%, #ed7701 100%)",
+            color: "#ffffff",
+          }}
+        >
+          EL
+        </h3>
+
+        {/* 投稿 */}
+        {isAxiosLoadingForPost ? (
+          <AxiosLoading />
+        ) : (
+          <>
             {elHomePosts.map((post) => (
               <div
                 key={post._id}
@@ -798,23 +834,23 @@ const EUL = () => {
                 </Button>
               </div>
             ))}
+          </>
+        )}
 
-            {/* すべて見る ボタンの実装 */}
-            <div className="border border-dark">
-              <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
-                <button
-                  className="btn btn-dark"
-                  type="button"
-                  onClick={() => navigate("/elPosts")}
-                >
-                  すべて見る
-                </button>
-              </div>
-            </div>
+        {/* すべて見る ボタンの実装 */}
+        <div className="border border-dark">
+          <div className="buttonArea d-grid gap-2 col-6 mx-auto pt-3 pb-3">
+            <button
+              className="btn btn-dark"
+              type="button"
+              onClick={() => navigate("/elPosts")}
+            >
+              すべて見る
+            </button>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 };
 
