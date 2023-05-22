@@ -18,6 +18,7 @@ import sampleIcon from "../../../images/sampleIcon.png";
 import CropIcon from "@mui/icons-material/Crop";
 import { useNavigate } from "react-router-dom";
 import CropEasy from "../../crop/CropEasy";
+import AxiosLoading from "../../../pages/AxiosLoading";
 
 const EditProfile = () => {
   const navigate = useNavigate();

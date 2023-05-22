@@ -12,6 +12,7 @@ import { PlayersNameContext } from "./../providers/PlayersName";
 import { AuthContext } from "./../../state/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AxiosLoading from "./../../pages/AxiosLoading";
 
 const PostForm = () => {
   // ログインしているユーザー情報を取得
