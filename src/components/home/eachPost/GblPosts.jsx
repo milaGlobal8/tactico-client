@@ -42,7 +42,7 @@ const GblPosts = () => {
       </h3>
       {/* 投稿 */}
       {isAxiosLoadingForPost ? (
-        <AxiosLoading />
+        <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
       ) : (
         <>
           {bundesPosts.map((post) => (

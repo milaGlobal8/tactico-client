@@ -16,6 +16,8 @@ import { useNavigate } from "react-router-dom";
 const PostForm = () => {
   // ログインしているユーザー情報を取得
   const { user: currentUser } = useContext(AuthContext);
+  // ローディング
+  const [isPostLoading, setIsPostLoading] = useState(false);
   //選手名
   // Context内のplayer11人分を取得
   const {
@@ -52,16 +54,6 @@ const PostForm = () => {
 
   // navigate
   const navigate = useNavigate();
-
-  // 以下をデータベースへ送信する
-  //   【送信するデータ】リーグ名：${selectedLeague}
-  //   /投稿タイトル：${postTitle}
-  //   /チーム名：${team}
-  //   /注目選手：${goodPlayer}
-  //   /攻撃戦術：${offenseSystem}
-  //   /守備戦術：${defenseSystem}
-  //   /選択されたフォーメーション：${selectedFormation}
-  //   /選手名:${player1}, ${player2}, ${player3}, ${player4}, ${player5}, ${player6}, ${player7}, ${player8}, ${player9}, ${player10}, ${player11}
 
   if (selectedLeague === "リーグ名を選択してください") {
     setIsDisabled(true);
@@ -119,46 +111,62 @@ const PostForm = () => {
     }
 
     try {
+      setIsPostLoading(true);
       await axios
         .post(process.env.REACT_APP_API_URL + "/posts", newPost)
+        .then(() => {
+          setIsPostLoading(false);
+        })
         .catch((err) => {
+          setIsPostLoading(false);
           console.log(err);
+          navigate("*");
         })
         .finally(() => {
           navigate("/");
         });
     } catch (err) {
+      setIsPostLoading(false);
       console.log(err);
+      navigate("*");
     }
   };
 
   return (
-    <div>
-      <form action="POST" onSubmit={(e) => handleSubmit(e)}>
-        <SelectLeague
-          setSelectedLeague={setSelectedLeague}
-          setIsDisabled={setIsDisabled}
-        />
-        <EnterPostTitle setPostTitle={setPostTitle} />
-        <EnterYourTeam setTeam={setTeam} />
-        <EnterGoodPlayer setGoodPlayer={setGoodPlayer} />
-        <EnterOffenseSystem
-          offenseSystem={offenseSystem}
-          setOffenseSystem={setOffenseSystem}
-        />
-        <EnterDefenseSystem
-          defenseSystem={defenseSystem}
-          setDefenseSystem={setDefenseSystem}
-        />
-        <SelectFormation
-          setSelectedFormation={setSelectedFormation}
-          setIsDisabled={setIsDisabled}
-        />
-        <Court selectedFormation={selectedFormation} />
-        {/* ボタン */}
-        <PostBtn isDisabled={isDisabled} />
-      </form>
-    </div>
+    <>
+      {isPostLoading ? (
+        <AxiosLoading loadingMsg="投稿を送信中です" />
+      ) : (
+        <>
+          <div className="post_form">
+            <form action="POST" onSubmit={(e) => handleSubmit(e)}>
+              <SelectLeague
+                setSelectedLeague={setSelectedLeague}
+                setIsDisabled={setIsDisabled}
+              />
+              <EnterPostTitle setPostTitle={setPostTitle} />
+              <EnterYourTeam setTeam={setTeam} />
+              <EnterGoodPlayer setGoodPlayer={setGoodPlayer} />
+              <EnterOffenseSystem
+                offenseSystem={offenseSystem}
+                setOffenseSystem={setOffenseSystem}
+              />
+              <EnterDefenseSystem
+                defenseSystem={defenseSystem}
+                setDefenseSystem={setDefenseSystem}
+              />
+              <SelectFormation
+                setSelectedFormation={setSelectedFormation}
+                setIsDisabled={setIsDisabled}
+              />
+              <Court selectedFormation={selectedFormation} />
+              {/* ボタン */}
+              <PostBtn isDisabled={isDisabled} />
+            </form>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

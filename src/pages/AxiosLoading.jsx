@@ -2,7 +2,7 @@ import * as React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
-export default function AxiosLoading() {
+export default function AxiosLoading({ loadingMsg }) {
   return (
     <Box
       sx={{
@@ -13,7 +13,7 @@ export default function AxiosLoading() {
         minHeight: "70px",
       }}
     >
-      <p className="text-primary">取得まで30秒ほどかかる場合がございます</p>
+      <p className="text-primary">{loadingMsg}</p>
       <CircularProgress />
     </Box>
   );

@@ -16,9 +16,6 @@ const NotResult = () => {
         backgroundColor: primary,
       }}
     >
-      <Typography variant="h1" style={{ color: "white" }}>
-        404
-      </Typography>
       <Typography variant="p" style={{ color: "white" }} className="mb-4">
         お探しの投稿・ユーザーは見つかりませんでした。
         <br />
