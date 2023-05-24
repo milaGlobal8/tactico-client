@@ -14,7 +14,7 @@ const LikedPost = ({ posts }) => {
         {posts.map((post) => (
           <div
             key={post._id}
-            className="userInfoBox container-fluid border border-dark p-0 m-0 row"
+            className="infoBox container-fluid border border-dark p-0 m-0 d-flex"
             style={{ backgroundColor: "rgba(255,255,255,1)" }}
           >
             {/* ユーザー情報 */}
@@ -34,7 +34,7 @@ const LikedPost = ({ posts }) => {
                         `/users/profilePicture/${post.profilePicture}`
                       : sampleIconImg
                   }
-                  className="border border-dark m-0"
+                  className="author border border-dark m-0"
                 />
               </Button>
             </div>
