@@ -47,7 +47,7 @@ const SearchPost = () => {
         setIsAlert(false);
       }
 
-      const response = await axios
+      await axios
         .get(
           process.env.REACT_APP_API_URL +
             `/posts/search/post/${keyword.current.value}`
