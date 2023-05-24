@@ -59,7 +59,9 @@ const LikedPost = ({ posts }) => {
                   <strong>{post.postTitle}</strong>
                 </p>
                 <p className="sentence m-0 text-dark">
-                  注目選手：{post.goodPlayer}
+                  <strong>
+                    <small>注目選手：{post.goodPlayer}</small>
+                  </strong>
                 </p>
               </Button>
             </div>
