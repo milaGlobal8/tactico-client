@@ -10,7 +10,7 @@ const AnotherUserLikedPosts = memo(({ user }) => {
   const { isAxiosLoading, fetchLikedPosts } = useAxiosLoading();
 
   useEffect(() => {
-    fetchLikedPosts(user._id, setAnotherUserLikedPosts);
+    fetchLikedPosts(user.userId, setAnotherUserLikedPosts);
   }, []);
 
   // もし投稿がなかったら
