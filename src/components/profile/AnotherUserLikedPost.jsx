@@ -3,7 +3,7 @@ import { Avatar, Button, Typography } from "@mui/material";
 import sampleIconImg from "../../images/sampleIcon.png";
 import { useNavigate } from "react-router-dom";
 
-const AntherUserLikedPost = ({ posts }) => {
+const AnotherUserLikedPost = ({ posts }) => {
   //navigateのインスタンス化
   const navigate = useNavigate();
 
@@ -72,4 +72,4 @@ const AntherUserLikedPost = ({ posts }) => {
   );
 };
 
-export default AntherUserLikedPost;
+export default AnotherUserLikedPost;
