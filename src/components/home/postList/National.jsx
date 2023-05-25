@@ -72,6 +72,7 @@ const National = () => {
                     variant="subtitle1"
                     component="div"
                     textTransform="none"
+                    style={{ color: "black" }}
                   >
                     {post.username}
                   </Typography>
@@ -94,6 +95,7 @@ const National = () => {
                       variant="subtitle1"
                       component="div"
                       textTransform="none"
+                      style={{ color: "black" }}
                     >
                       {post.username}
                     </Typography>
@@ -109,12 +111,14 @@ const National = () => {
                 <Typography
                   className="sentence text-center mx-auto"
                   textTransform="none"
+                  style={{ color: "black" }}
                 >
                   <strong>{post.postTitle}</strong>
                 </Typography>
                 <Typography
                   className="sentence text-center mx-auto"
                   textTransform="none"
+                  style={{ color: "black" }}
                 >
                   注目選手：{post.goodPlayer}
                 </Typography>
