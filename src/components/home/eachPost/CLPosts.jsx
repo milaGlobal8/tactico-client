@@ -86,22 +86,6 @@ const CLPosts = () => {
                       >
                         {post.username}
                       </Typography>
-                      {/* 投稿内容 */}
-                      <Button
-                        variant="text"
-                        sx={{ textTransform: "none" }}
-                        className="post_content p-0 d-flex flex-column align-items-start w-100"
-                        onClick={() => navigate("/view-post", { state: post })}
-                      >
-                        <p className="sentence m-0 text-dark">
-                          <strong>{post.postTitle}</strong>
-                        </p>
-                        <p className="sentence m-0 text-dark">
-                          <strong>
-                            <small>注目選手：{post.goodPlayer}</small>
-                          </strong>
-                        </p>
-                      </Button>
                     </div>
                   </>
                 ) : (
