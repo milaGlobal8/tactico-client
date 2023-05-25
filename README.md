@@ -117,9 +117,9 @@ URL：
 
 ## 1.チームメンバー
 
-石関隼 Shun Ishizeki
-小笠原駿 Shun Ogasawara
-張思斉 Siqi Zhang
+石関隼 (Shun Ishizeki)
+小笠原駿 (Shun Ogasawara)
+張思斉 (Siqi Zhang)
 
 ## 2.参考資料
 
