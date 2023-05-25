@@ -50,80 +50,84 @@ const ELPosts = () => {
             {elPosts.map((post) => (
               <div
                 key={post._id}
-                className="userInfoBox container-fluid border border-dark p-0 m-0 row"
-                style={{ backgroundColor: "rgba(163,81,21,0.1)" }}
+                className="userInfoBox container-fluid border border-dark p-0 m-0 d-flex"
+                style={{ backgroundColor: "rgba(33,84,133,0.1)" }}
               >
                 {/* ユーザー情報 */}
                 {currentUser ? (
-                  <Button
-                    variant="text"
-                    className="col-3 d-flex flex-column"
-                    onClick={() =>
-                      navigate(`/profile/${post.username}`, { state: post })
-                    }
-                  >
-                    <Avatar
-                      alt="user_profilePicture"
-                      src={
-                        post.profilePicture
-                          ? process.env.REACT_APP_API_URL +
-                            `/users/profilePicture/${post.profilePicture}`
-                          : sampleIconImg
-                      }
-                      className="border border-dark m-0"
-                    />
-                    <Typography
-                      gutterBottom
-                      variant="subtitle1"
-                      component="div"
-                      textTransform="none"
-                    >
-                      {post.username}
-                    </Typography>
-                  </Button>
+                  <>
+                    <div className="profile">
+                      <Button
+                        variant="text"
+                        className="post_author pt-1 d-flex justify-content-start ps-2 pt-0 m-0"
+                        onClick={() =>
+                          navigate(`/profile/${post.username}`, { state: post })
+                        }
+                      >
+                        <Avatar
+                          alt="profile"
+                          src={
+                            post.profilePicture
+                              ? process.env.REACT_APP_API_URL +
+                                `/users/profilePicture/${post.profilePicture}`
+                              : sampleIconImg
+                          }
+                          className="author border border-dark m-0"
+                        />
+                      </Button>
+                    </div>
+                  </>
                 ) : (
                   <Tooltip title="ログインされた方のみ閲覧することができます">
-                    <Button variant="text" className="col-3 d-flex flex-column">
-                      <Avatar
-                        alt="user_profilePicture"
-                        src={
-                          post.profilePicture
-                            ? process.env.REACT_APP_API_URL +
-                              `/users/profilePicture/${post.profilePicture}`
-                            : sampleIconImg
+                    <div className="profile">
+                      <Button
+                        variant="text"
+                        className="post_author pt-1 d-flex justify-content-start ps-2 pt-0 m-0"
+                        onClick={() =>
+                          navigate(`/profile/${post.username}`, { state: post })
                         }
-                        className="border border-dark m-0"
-                      />
-                      <Typography
-                        gutterBottom
-                        variant="subtitle1"
-                        component="div"
-                        textTransform="none"
                       >
-                        {post.username}
-                      </Typography>
-                    </Button>
+                        <Avatar
+                          alt="profile"
+                          src={
+                            post.profilePicture
+                              ? process.env.REACT_APP_API_URL +
+                                `/users/profilePicture/${post.profilePicture}`
+                              : sampleIconImg
+                          }
+                          className="author border border-dark m-0"
+                        />
+                      </Button>
+                    </div>
                   </Tooltip>
                 )}
                 {/* 投稿内容 */}
-                <Button
-                  variant="text"
-                  className="col-9 d-flex flex-column p-3 m-0"
-                  onClick={() => navigate("/view-post", { state: post })}
-                >
+                <div className="name_content flex-grow-1">
                   <Typography
-                    className="sentence text-center mx-auto"
+                    gutterBottom
+                    variant="p"
+                    component="div"
                     textTransform="none"
+                    className="post_username"
                   >
-                    <strong>{post.postTitle}</strong>
+                    {post.username}
                   </Typography>
-                  <Typography
-                    className="sentence text-center mx-auto"
-                    textTransform="none"
+                  <Button
+                    variant="text"
+                    sx={{ textTransform: "none" }}
+                    className="post_content p-0 d-flex flex-column align-items-start w-100"
+                    onClick={() => navigate("/view-post", { state: post })}
                   >
-                    注目選手：{post.goodPlayer}
-                  </Typography>
-                </Button>
+                    <p className="sentence m-0 text-dark">
+                      <strong>{post.postTitle}</strong>
+                    </p>
+                    <p className="sentence m-0 text-dark">
+                      <strong>
+                        <small>注目選手：{post.goodPlayer}</small>
+                      </strong>
+                    </p>
+                  </Button>
+                </div>
               </div>
             ))}
           </>
