@@ -51,7 +51,7 @@ const ELPosts = () => {
               <div
                 key={post._id}
                 className="userInfoBox container-fluid border border-dark p-0 m-0 d-flex"
-                style={{ backgroundColor: "rgba(33,84,133,0.1)" }}
+                style={{ backgroundColor: "rgba(163,81,21,0.1)" }}
               >
                 {/* ユーザー情報 */}
                 {currentUser ? (
