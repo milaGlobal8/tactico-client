@@ -4,7 +4,6 @@ import sampleIconImg from "../../images/sampleIcon.png";
 import { useNavigate } from "react-router-dom";
 
 const LikedPost = ({ posts }) => {
-  //navigateのインスタンス化
   const navigate = useNavigate();
 
   return (
@@ -14,7 +13,7 @@ const LikedPost = ({ posts }) => {
         {posts.map((post) => (
           <div
             key={post._id}
-            className="infoBox container-fluid border border-dark p-0 m-0 d-flex"
+            className="liked_post container-fluid border border-dark p-0 m-0 d-flex"
             style={{ backgroundColor: "rgba(255,255,255,1)" }}
           >
             {/* ユーザー情報 */}
