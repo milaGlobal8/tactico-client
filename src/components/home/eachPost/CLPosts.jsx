@@ -76,17 +76,6 @@ const CLPosts = () => {
                         />
                       </Button>
                     </div>
-                    <div className="name_content flex-grow-1">
-                      <Typography
-                        gutterBottom
-                        variant="p"
-                        component="div"
-                        textTransform="none"
-                        className="post_username"
-                      >
-                        {post.username}
-                      </Typography>
-                    </div>
                   </>
                 ) : (
                   <Tooltip title="ログインされた方のみ閲覧することができます">
