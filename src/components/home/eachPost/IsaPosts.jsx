@@ -16,10 +16,10 @@ const IsaPosts = () => {
   const [serieaPosts, setSerieaPosts] = useState([]);
 
   // データベースから投稿データすべてをとってくる
-  const { isAxiosLoading, setIsAxiosLoading, fetchSerieaPosts } =
+  const { isAxiosLoadingForPost, setIsAxiosLoadingForPost, fetchSerieaPosts } =
     useFetchPosts();
   useEffect(() => {
-    fetchSerieaPosts(setSerieaPosts, setIsAxiosLoading);
+    fetchSerieaPosts(setSerieaPosts, setIsAxiosLoadingForPost);
   }, []);
 
   return (
@@ -42,7 +42,7 @@ const IsaPosts = () => {
           SERIE A
         </h3>
         {/* 投稿 */}
-        {isAxiosLoading ? (
+        {isAxiosLoadingForPost ? (
           <AxiosLoading loadingMsg="取得まで30秒ほどかかる場合がございます" />
         ) : (
           <>
