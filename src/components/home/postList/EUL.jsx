@@ -109,9 +109,6 @@ const EUL = () => {
                       <Button
                         variant="text"
                         className="post_author pt-1 d-flex justify-content-start ps-2 pt-0 m-0"
-                        onClick={() =>
-                          navigate(`/profile/${post.username}`, { state: post })
-                        }
                       >
                         <Avatar
                           alt="profile"
@@ -229,9 +226,6 @@ const EUL = () => {
                       <Button
                         variant="text"
                         className="post_author pt-1 d-flex justify-content-start ps-2 pt-0 m-0"
-                        onClick={() =>
-                          navigate(`/profile/${post.username}`, { state: post })
-                        }
                       >
                         <Avatar
                           alt="profile"
@@ -346,9 +340,6 @@ const EUL = () => {
                       <Button
                         variant="text"
                         className="post_author pt-1 d-flex justify-content-start ps-2 pt-0 m-0"
-                        onClick={() =>
-                          navigate(`/profile/${post.username}`, { state: post })
-                        }
                       >
                         <Avatar
                           alt="profile"
@@ -463,9 +454,6 @@ const EUL = () => {
                       <Button
                         variant="text"
                         className="post_author pt-1 d-flex justify-content-start ps-2 pt-0 m-0"
-                        onClick={() =>
-                          navigate(`/profile/${post.username}`, { state: post })
-                        }
                       >
                         <Avatar
                           alt="profile"
@@ -580,9 +568,6 @@ const EUL = () => {
                       <Button
                         variant="text"
                         className="post_author pt-1 d-flex justify-content-start ps-2 pt-0 m-0"
-                        onClick={() =>
-                          navigate(`/profile/${post.username}`, { state: post })
-                        }
                       >
                         <Avatar
                           alt="profile"
@@ -697,9 +682,6 @@ const EUL = () => {
                       <Button
                         variant="text"
                         className="post_author pt-1 d-flex justify-content-start ps-2 pt-0 m-0"
-                        onClick={() =>
-                          navigate(`/profile/${post.username}`, { state: post })
-                        }
                       >
                         <Avatar
                           alt="profile"
@@ -815,9 +797,6 @@ const EUL = () => {
                       <Button
                         variant="text"
                         className="post_author pt-1 d-flex justify-content-start ps-2 pt-0 m-0"
-                        onClick={() =>
-                          navigate(`/profile/${post.username}`, { state: post })
-                        }
                       >
                         <Avatar
                           alt="profile"
