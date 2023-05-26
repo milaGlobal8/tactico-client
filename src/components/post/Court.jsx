@@ -45,6 +45,9 @@ import FiveOneTwoTwo from "./formationList/five/FiveOneTwoTwo";
 import FiveOneOneThree from "./formationList/five/FiveOneOneThree";
 
 const Court = ({ selectedFormation }) => {
+  // 画像
+  const PUBLIC_IMAGES = process.env.REACT_APP_PUBLIC_FOLDER;
+
   if (selectedFormation) {
     switch (selectedFormation) {
       // 4バック
@@ -136,7 +139,7 @@ const Court = ({ selectedFormation }) => {
     <div className="container-fluid w-100 p-3">
       <div className="position-relative d-flex vstack gap-0 h-100">
         <img
-          src={courtImg}
+          src={PUBLIC_IMAGES + "/post/newCourt.jpg"}
           alt="court"
           className="img-fluid h-100 border border-dark"
           style={{ maxHeight: "500px", maxWidth: "500px" }}
