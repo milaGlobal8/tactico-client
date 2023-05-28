@@ -249,9 +249,6 @@ export default function SignUp() {
                       <MenuItem value="好きな有名人は?">
                         好きな有名人は?
                       </MenuItem>
-                      <MenuItem value="好きなスポーツは?">
-                        好きなスポーツは?
-                      </MenuItem>
                       <MenuItem value="最初に飼ったペットの名前は?">
                         最初に飼ったペットの名前は?
                       </MenuItem>
