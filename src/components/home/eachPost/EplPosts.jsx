@@ -40,7 +40,7 @@ const EplPosts = () => {
             color: "#37003c",
           }}
         >
-          English Premier League
+          プレミアリーグ
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (

@@ -33,7 +33,7 @@ const JL = () => {
           color: "#ffffff",
         }}
       >
-        J-league
+        Jリーグ
       </h3>
       {/* 投稿 */}
       {isAxiosLoadingForPost ? (

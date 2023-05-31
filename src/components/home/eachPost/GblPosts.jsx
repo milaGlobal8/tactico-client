@@ -38,7 +38,7 @@ const GblPosts = () => {
           color: "#191917",
         }}
       >
-        BUNDESLIGA
+        ブンデスリーガ
       </h3>
       {/* 投稿 */}
       {isAxiosLoadingForPost ? (

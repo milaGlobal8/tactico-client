@@ -35,7 +35,7 @@ const National = () => {
           color: "#ffffff",
         }}
       >
-        National
+        代表
       </h3>
       {/* 投稿 */}
       {isAxiosLoadingForPost ? (

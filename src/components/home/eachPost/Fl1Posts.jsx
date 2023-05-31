@@ -29,7 +29,7 @@ const Fl1Posts = () => {
     >
       <Header />
 
-      {/* フランス・リーグ１ */}
+      {/* フランス・リーグ・アン */}
       <div className="FL1 container-fluid border border-dark p-0">
         <h3
           className="container-fluid border-bottom border-dark p-0 m-0 text-center"
@@ -39,7 +39,7 @@ const Fl1Posts = () => {
             color: "#cdfb0a",
           }}
         >
-          LIGUE 1
+          リーグ・アン
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
