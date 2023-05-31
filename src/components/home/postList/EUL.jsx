@@ -66,7 +66,7 @@ const EUL = () => {
             color: "#37003c",
           }}
         >
-          English Premier League
+          プレミアリーグ
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
@@ -170,7 +170,7 @@ const EUL = () => {
         </div>
       </div>
 
-      {/* リーガ・エスパニョーラ */}
+      {/* ラ・リーガ */}
 
       <div className="SLE container-fluid border border-dark p-0">
         <h3
@@ -181,7 +181,7 @@ const EUL = () => {
             color: "white",
           }}
         >
-          LaLiga
+          ラ･リーガ
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
@@ -297,7 +297,7 @@ const EUL = () => {
             color: "#191917",
           }}
         >
-          BUNDESLIGA
+          ブンデスリーガ
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
@@ -411,7 +411,7 @@ const EUL = () => {
             color: "#37003c",
           }}
         >
-          SERIE A
+          セリエA
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
@@ -515,7 +515,7 @@ const EUL = () => {
         </div>
       </div>
 
-      {/* フランス・リーグ１ */}
+      {/* フランス・リーグ・アン */}
       <div className="FL1 container-fluid border border-dark p-0">
         <h3
           className="container-fluid border-bottom border-dark p-0 m-0 text-center"
@@ -525,7 +525,7 @@ const EUL = () => {
             color: "#cdfb0a",
           }}
         >
-          LIGUE 1
+          リーグ・アン
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (

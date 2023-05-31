@@ -29,7 +29,7 @@ const SllPosts = () => {
     >
       <Header />
 
-      {/* リーガ・エスパニョーラ */}
+      {/* ラ・リーガ */}
 
       <div className="SLE container-fluid border border-dark p-0">
         <h3
@@ -40,7 +40,7 @@ const SllPosts = () => {
             color: "white",
           }}
         >
-          LaLiga
+          ラ・リーガ
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (

@@ -39,7 +39,7 @@ const IsaPosts = () => {
             color: "#37003c",
           }}
         >
-          SERIE A
+          セリエA
         </h3>
         {/* 投稿 */}
         {isAxiosLoadingForPost ? (
