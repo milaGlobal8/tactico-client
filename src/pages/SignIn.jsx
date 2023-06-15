@@ -108,6 +108,12 @@ export default function SignIn() {
             <Typography component="h1" variant="h5">
               ログイン
             </Typography>
+            {/* ログイン前の注意事項 */}
+            <Alert severity="info" sx={{ my: 1 }}>
+              ログインされた方のみ、
+              <br />
+              投稿・検索・プロフィールの閲覧ができます。
+            </Alert>
             <Box
               component="form"
               onSubmit={(e) => handleSubmit(e)}
