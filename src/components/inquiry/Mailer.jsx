@@ -12,10 +12,10 @@ const Mailer = () => {
 
     emailjs
       .sendForm(
-        "service_19ruwkj",
-        "template_vgsviii",
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
         form.current,
-        "xhIFEnCEQrWQ9x8FJ"
+        process.env.REACT_APP_USER_ID
       )
       .then(
         (result) => {
